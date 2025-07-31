@@ -84,3 +84,21 @@ body {
   background-color: rgba(255, 255, 255, 0.07); /* un peu plus visible au survol */
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
 }
+.hex-zone {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  clip-path: polygon(
+    25% 0%, 75% 0%,
+    100% 50%,
+    75% 100%, 25% 100%,
+    0% 50%
+  );
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.hex-zone:hover {
+  transform: scale(1.1);
+}
