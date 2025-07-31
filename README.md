@@ -1,3 +1,3 @@
 # SpinTale Groove
 🍃🍂🍂 FORÊTE 🍁 QUCONTEUIQSEUE 🍃🍃
-![Spintale](./assets/spinTale.png)
+![Spintale](./assets/SpinTale.png)
