@@ -2,17 +2,161 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Entrée de la Forêt Quanticonteuse</title>
+  <title>🌲 SpinForest</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      overflow: hidden;
+    }
+    .scene {
+      display: none;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      transition: opacity 0.8s ease;
+      opacity: 0;
+    }
+    .scene img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .zone {
+      position: absolute;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.1);
+      transition: border 0.3s;
+    }
+    .zone:hover {
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    #scene-H {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Crypte */
+    .digipad {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      font-family: monospace;
+      position: relative;
+      z-index: 2;
+    }
+    .digipad input {
+      font-size: 2em;
+      padding: 0.4em;
+      background: black;
+      color: lime;
+      border: 1px solid lime;
+      text-align: center;
+      width: 150px;
+      margin-bottom: 1em;
+    }
+    .digipad button {
+      font-size: 1.2em;
+      padding: 0.4em 1em;
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+    .digipad button:hover {
+      background: white;
+      color: black;
+    }
+    .error-msg {
+      margin-top: 1em;
+      color: crimson;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    .back {
+      margin-top: 2em;
+      color: gray;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body style="margin:0; background-color:black;">
-  <img src="assets/H-1.png" alt="Panneau d'entrée" usemap="#map-h1" style="width:100%; max-width:1200px; display:block; margin:auto;">
-  
-  <map name="map-h1">
-    <!-- Chemin du Jour (à droite) -->
-    <area shape="rect" coords="700,400,1000,650" href="scene-2-4.html" alt="Chemin du Jour">
-    
-    <!-- Chemin de la Nuit (à gauche) -->
-    <area shape="rect" coords="200,400,500,650" href="scene-3-5.html" alt="Chemin de la Nuit">
-  </map>
+<body>
+
+<!-- SCÈNE H -->
+<div class="scene" id="scene-H">
+  <img src="assets/H-1.png" alt="Entrée">
+  <div class="zone" style="left: 10%; top: 55%; width: 20%; height: 25%;" onclick="goTo('scene-Nuit')"></div>
+  <div class="zone" style="left: 70%; top: 55%; width: 20%; height: 25%;" onclick="goTo('scene-Jour')"></div>
+  <!-- 🔒 Zone secrète vers Crypte -->
+  <div class="zone" style="left:90%;top:5%;width:5%;height:10%;" onclick="goTo('scene-Crypte')"></div>
+</div>
+
+<!-- SCÈNE JOUR -->
+<div class="scene" id="scene-Jour">
+  <img src="assets/2-4.png" alt="Jour">
+  <div class="zone" style="left: 40%; top: 60%; width: 20%; height: 25%;" onclick="goTo('scene-IN-Jour')"></div>
+</div>
+
+<!-- SCÈNE NUIT -->
+<div class="scene" id="scene-Nuit">
+  <img src="assets/3-5.png" alt="Nuit">
+  <div class="zone" style="left: 40%; top: 60%; width: 20%; height: 25%;" onclick="goTo('scene-IN-Nuit')"></div>
+</div>
+
+<!-- SCÈNE IN JOUR -->
+<div class="scene" id="scene-IN-Jour">
+  <a href="https://v0ogz.github.io/Heroes-of-Time/">
+    <img src="assets/4-IN.png" alt="Portail Avalon - Jour">
+  </a>
+</div>
+
+<!-- SCÈNE IN NUIT -->
+<div class="scene" id="scene-IN-Nuit">
+  <a href="https://v0ogz.github.io/Heroes-of-Time/">
+    <img src="assets/5-IN.png" alt="Portail Avalon - Nuit">
+  </a>
+</div>
+
+<!-- 🕳 SCÈNE CRYPTE BONNEPOTE -->
+<div class="scene" id="scene-Crypte">
+  <img src="assets/crypte.png" alt="Crypte" style="position:absolute; width:100%; height:auto; z-index:0;">
+  <div class="digipad">
+    <h2>🔐 Accès à la Crypte Runique</h2>
+    <input type="password" id="code" placeholder="RUNE">
+    <button onclick="rejectCode()">ENTRER</button>
+    <div id="err" class="error-msg"></div>
+    <div class="back" onclick="goTo('scene-H')">↩ Revenir à l’entrée</div>
+  </div>
+</div>
+
+<!-- 🔊 SONS (facultatifs, anticipés) -->
+<audio id="failSound" src="assets/echec.mp3" preload="auto"></audio>
+
+<script>
+  function goTo(id) {
+    document.querySelectorAll('.scene').forEach(scene => {
+      scene.style.opacity = 0;
+      setTimeout(() => scene.style.display = 'none', 800);
+    });
+
+    const target = document.getElementById(id);
+    if (target) {
+      target.style.display = 'flex';
+      setTimeout(() => target.style.opacity = 1, 20);
+    }
+  }
+
+  function rejectCode() {
+    const sound = document.getElementById("failSound");
+    if (sound) sound.play().catch(() => {});
+    document.getElementById("err").innerText = "❌ Tatouage non activé. Revenez plus tard.";
+  }
+</script>
+
 </body>
 </html>
