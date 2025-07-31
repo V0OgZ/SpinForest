@@ -38,8 +38,6 @@
       display: flex;
       opacity: 1;
     }
-
-    /* Crypte */
     .digipad {
       display: flex;
       flex-direction: column;
@@ -90,23 +88,21 @@
 <!-- SCÈNE H -->
 <div class="scene" id="scene-H">
   <img src="assets/H-1.png" alt="Entrée">
-  <div class="zone" style="left: 10%; top: 55%; width: 20%; height: 25%;" onclick="goTo('scene-Nuit')"></div>
-  <div class="zone" style="left: 70%; top: 55%; width: 20%; height: 25%;" onclick="goTo('scene-Jour')"></div>
+  <div class="zone" style="left: 10%; top: 55%; width: 20%; height: 25%;" onclick="navigate('scene-Nuit')"></div>
+  <div class="zone" style="left: 70%; top: 55%; width: 20%; height: 25%;" onclick="navigate('scene-Jour')"></div>
 </div>
 
 <!-- SCÈNE JOUR -->
 <div class="scene" id="scene-Jour">
   <img src="assets/2-4.png" alt="Jour">
-  <div class="zone" style="left: 40%; top: 60%; width: 20%; height: 25%;" onclick="goTo('scene-IN-Jour')"></div>
+  <div class="zone" style="left: 40%; top: 60%; width: 20%; height: 25%;" onclick="navigate('scene-IN-Jour')"></div>
 </div>
 
 <!-- SCÈNE NUIT -->
 <div class="scene" id="scene-Nuit">
   <img src="assets/3-5.png" alt="Nuit">
-  <!-- gauche → Avalon -->
-  <div class="zone" style="left: 20%; top: 60%; width: 20%; height: 25%;" onclick="goTo('scene-IN-Nuit')"></div>
-  <!-- droite → Crypte -->
-  <div class="zone" style="left: 60%; top: 60%; width: 20%; height: 25%;" onclick="goTo('scene-Crypte')"></div>
+  <div class="zone" style="left: 20%; top: 60%; width: 20%; height: 25%;" onclick="navigate('scene-IN-Nuit')"></div>
+  <div class="zone" style="left: 60%; top: 60%; width: 20%; height: 25%;" onclick="navigate('scene-Crypte')"></div>
 </div>
 
 <!-- SCÈNE IN JOUR -->
@@ -131,38 +127,30 @@
     <input type="password" id="code" placeholder="RUNE">
     <button onclick="rejectCode()">ENTRER</button>
     <div id="err" class="error-msg"></div>
-    <div class="back" onclick="goTo('scene-Nuit')">↩ Revenir à la nuit</div>
+    <div class="back" onclick="navigate('scene-Nuit')">↩ Revenir à la nuit</div>
   </div>
 </div>
 
 <audio id="failSound" src="assets/echec.mp3" preload="auto"></audio>
+
 <script>
- function goTo(id) {
-  document.querySelectorAll('.scene').forEach(scene => {
-    // Masquer toutes les scènes : on baisse l'opacité
-    scene.style.opacity = 0;
+  const historyStack = [];
 
-    // ⚠️ On attend que la transition soit finie AVANT de faire display: none
-    setTimeout(() => {
-      if (scene.id !== id) {
-        scene.style.display = 'none';
-      }
-    }, 800);
-  });
+  function navigate(id) {
+    const scenes = document.querySelectorAll('.scene');
+    scenes.forEach(scene => {
+      scene.style.opacity = 0;
+      setTimeout(() => scene.style.display = 'none', 800);
+    });
 
-  // Puis on affiche la nouvelle scène
-  const target = document.getElementById(id);
-  if (target) {
-    // On affiche immédiatement en "flex" (pour qu’elle existe à l’écran)
-    target.style.display = 'flex';
-
-    // Et on attend un tick avant d’augmenter l’opacité (sinon ça glitch)
-    setTimeout(() => {
-      target.style.opacity = 1;
-    }, 20);
+    const target = document.getElementById(id);
+    if (target) {
+      target.style.display = 'flex';
+      setTimeout(() => target.style.opacity = 1, 20);
+      historyStack.push(id);
+      window.history.pushState({ scene: id }, '', '#' + id);
+    }
   }
-}
-
 
   function rejectCode() {
     const sound = document.getElementById("failSound");
@@ -170,9 +158,19 @@
     document.getElementById("err").innerText = "❌ Tatouage non activé. Revenez plus tard.";
   }
 
-  // 🔧 Correction du bug d’écran noir à l’ouverture
   window.addEventListener("DOMContentLoaded", () => {
-    goTo("scene-H");
+    const sceneId = window.location.hash.replace('#', '') || 'scene-H';
+    const initial = document.getElementById(sceneId);
+    if (initial) {
+      initial.style.display = 'flex';
+      setTimeout(() => initial.style.opacity = 1, 20);
+      historyStack.push(sceneId);
+    }
+  });
+
+  window.addEventListener('popstate', (event) => {
+    const id = (event.state && event.state.scene) || 'scene-H';
+    navigate(id);
   });
 </script>
 
