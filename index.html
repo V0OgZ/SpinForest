@@ -137,18 +137,32 @@
 
 <audio id="failSound" src="assets/echec.mp3" preload="auto"></audio>
 <script>
-  function goTo(id) {
-    document.querySelectorAll('.scene').forEach(scene => {
-      scene.style.opacity = 0;
-      setTimeout(() => scene.style.display = 'none', 800);
-    });
+ function goTo(id) {
+  document.querySelectorAll('.scene').forEach(scene => {
+    // Masquer toutes les scènes : on baisse l'opacité
+    scene.style.opacity = 0;
 
-    const target = document.getElementById(id);
-    if (target) {
-      target.style.display = 'flex';
-      setTimeout(() => target.style.opacity = 1, 20);
-    }
+    // ⚠️ On attend que la transition soit finie AVANT de faire display: none
+    setTimeout(() => {
+      if (scene.id !== id) {
+        scene.style.display = 'none';
+      }
+    }, 800);
+  });
+
+  // Puis on affiche la nouvelle scène
+  const target = document.getElementById(id);
+  if (target) {
+    // On affiche immédiatement en "flex" (pour qu’elle existe à l’écran)
+    target.style.display = 'flex';
+
+    // Et on attend un tick avant d’augmenter l’opacité (sinon ça glitch)
+    setTimeout(() => {
+      target.style.opacity = 1;
+    }, 20);
   }
+}
+
 
   function rejectCode() {
     const sound = document.getElementById("failSound");
