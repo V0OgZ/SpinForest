@@ -1,178 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>🌲 SpinForest</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portail d’Avalon</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background-color: black;
-      overflow: hidden;
-    }
-    .scene {
-      display: none;
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      justify-content: center;
-      align-items: center;
-      background-color: black;
-      transition: opacity 0.8s ease;
-      opacity: 0;
-    }
-    .scene img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    .zone {
-      position: absolute;
-      cursor: pointer;
-      border: 2px solid rgba(255,255,255,0.1);
-      transition: border 0.3s;
-    }
-    .zone:hover {
-      border: 2px solid rgba(255,255,255,0.6);
-    }
-    #scene-H {
-      display: flex;
-      opacity: 1;
-    }
-    .digipad {
+      height: 100%;
+      font-family: 'Garamond', serif;
+      color: #f8f8f8;
+      background: radial-gradient(circle at center, #1a1a1a, #000000);
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: white;
-      font-family: monospace;
-      position: relative;
-      z-index: 2;
+      justify-content: center;
     }
-    .digipad input {
-      font-size: 2em;
-      padding: 0.4em;
-      background: black;
-      color: lime;
-      border: 1px solid lime;
+
+    h1 {
       text-align: center;
-      width: 150px;
-      margin-bottom: 1em;
+      text-shadow: 0 0 10px #222;
+      margin-bottom: 10px;
     }
-    .digipad button {
-      font-size: 1.2em;
-      padding: 0.4em 1em;
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-      cursor: pointer;
+
+    .portail {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .digipad button:hover {
-      background: white;
-      color: black;
+
+    .portail a {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: #eee;
+      border: 1px solid #555;
+      transition: all 0.2s ease;
+      text-align: center;
     }
-    .error-msg {
-      margin-top: 1em;
-      color: crimson;
-      font-size: 1.1em;
-      font-weight: bold;
-    }
-    .back {
-      margin-top: 2em;
-      color: gray;
-      cursor: pointer;
-      text-decoration: underline;
+
+    .portail a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
     }
   </style>
 </head>
 <body>
-
-<!-- SCÈNE H -->
-<div class="scene" id="scene-H">
-  <img src="assets/H-1.png" alt="Entrée">
-  <div class="zone" style="left: 10%; top: 55%; width: 20%; height: 25%;" onclick="navigate('scene-Nuit')"></div>
-  <div class="zone" style="left: 70%; top: 55%; width: 20%; height: 25%;" onclick="navigate('scene-Jour')"></div>
-</div>
-
-<!-- SCÈNE JOUR -->
-<div class="scene" id="scene-Jour">
-  <img src="assets/2-4.png" alt="Jour">
-  <div class="zone" style="left: 40%; top: 60%; width: 20%; height: 25%;" onclick="navigate('scene-IN-Jour')"></div>
-</div>
-
-<!-- SCÈNE NUIT -->
-<div class="scene" id="scene-Nuit">
-  <img src="assets/3-5.png" alt="Nuit">
-  <div class="zone" style="left: 20%; top: 60%; width: 20%; height: 25%;" onclick="navigate('scene-IN-Nuit')"></div>
-  <div class="zone" style="left: 60%; top: 60%; width: 20%; height: 25%;" onclick="navigate('scene-Crypte')"></div>
-</div>
-
-<!-- SCÈNE IN JOUR -->
-<div class="scene" id="scene-IN-Jour">
-  <a href="https://v0ogz.github.io/Heroes-of-Time/">
-    <img src="assets/4-IN.png" alt="Portail Avalon - Jour">
-  </a>
-</div>
-
-<!-- SCÈNE IN NUIT -->
-<div class="scene" id="scene-IN-Nuit">
-  <a href="https://v0ogz.github.io/Heroes-of-Time/">
-    <img src="assets/5-IN.png" alt="Portail Avalon - Nuit">
-  </a>
-</div>
-
-<!-- SCÈNE CRYPTE -->
-<div class="scene" id="scene-Crypte">
-  <img src="assets/Crypte.png" alt="Crypte" style="position:absolute; width:100%; height:auto; z-index:0;">
-  <div class="digipad">
-    <h2>🔐 Accès à la Crypte Runique</h2>
-    <input type="password" id="code" placeholder="RUNE">
-    <button onclick="rejectCode()">ENTRER</button>
-    <div id="err" class="error-msg"></div>
-    <div class="back" onclick="navigate('scene-Nuit')">↩ Revenir à la nuit</div>
+  <h1>🌀 Portail d’Avalon</h1>
+  <div class="portail">
+    <a href="crypte.html">🌑 Entrer dans la Crypte</a>
+    <!-- Ajoute d'autres liens ici -->
+    <!-- <a href="foret.html">🌲 Entrer dans la Forêt Quantiqueuse</a> -->
   </div>
-</div>
 
-<audio id="failSound" src="assets/echec.mp3" preload="auto"></audio>
-
-<script>
-  const historyStack = [];
-
-  function navigate(id) {
-    const scenes = document.querySelectorAll('.scene');
-    scenes.forEach(scene => {
-      scene.style.opacity = 0;
-      setTimeout(() => scene.style.display = 'none', 800);
-    });
-
-    const target = document.getElementById(id);
-    if (target) {
-      target.style.display = 'flex';
-      setTimeout(() => target.style.opacity = 1, 20);
-      historyStack.push(id);
-      window.history.pushState({ scene: id }, '', '#' + id);
-    }
-  }
-
-  function rejectCode() {
-    const sound = document.getElementById("failSound");
-    if (sound) sound.play().catch(() => {});
-    document.getElementById("err").innerText = "❌ Tatouage non activé. Revenez plus tard.";
-  }
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const sceneId = window.location.hash.replace('#', '') || 'scene-H';
-    const initial = document.getElementById(sceneId);
-    if (initial) {
-      initial.style.display = 'flex';
-      setTimeout(() => initial.style.opacity = 1, 20);
-      historyStack.push(sceneId);
-    }
-  });
-
-  window.addEventListener('popstate', (event) => {
-    const id = (event.state && event.state.scene) || 'scene-H';
-    navigate(id);
-  });
-</script>
-
+  <script src="spells/index.js"></script>
 </body>
 </html>

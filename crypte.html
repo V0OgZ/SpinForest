@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crypte - Chemin de Nuit</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background-image: url('assets/creep.png');
+      background-size: cover;
+      background-position: center;
+      font-family: "Georgia", serif;
+      color: #f0e6d2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      text-shadow: 0 0 15px #000000;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: 2px solid #999;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌑 Crypte d’Avalon</h1>
+  <p>Un lieu ancien où les voix résonnent encore...</p>
+  <button onclick="goBackToIndex()">↩️ Retour au Portail</button>
+
+  <script src="spells/crypte.js"></script>
+</body>
+</html>
