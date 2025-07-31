@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.scene {
+  display: none;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zone {
+  position: absolute;
+  cursor: pointer;
+}
+
+.back {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.digipad {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
+}
+
+.digipad input {
+  padding: 8px;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.digipad button {
+  padding: 10px 15px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-msg {
+  margin-top: 10px;
+  color: red;
+}
