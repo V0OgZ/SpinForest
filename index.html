@@ -2,56 +2,17 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SpinForest - Entrée</title>
-  <style>
-    body {
-      margin: 0;
-      background: url('assets/SpinTale.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Georgia', serif;
-      color: white;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      backdrop-filter: blur(3px);
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 30px;
-    }
-
-    .link-button {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 15px 25px;
-      margin: 10px;
-      text-decoration: none;
-      font-size: 1.2em;
-      border-radius: 8px;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .link-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.05);
-    }
-  </style>
+  <title>Entrée de la Forêt Quanticonteuse</title>
 </head>
-<body>
-  <div class="container">
-    <h1>🌳 Entrez dans la Forêt Quanticonteuse</h1>
+<body style="margin:0; background-color:black;">
+  <img src="assets/H-1.png" alt="Panneau d'entrée" usemap="#map-h1" style="width:100%; max-width:1200px; display:block; margin:auto;">
+  
+  <map name="map-h1">
+    <!-- Chemin du Jour (à droite) -->
+    <area shape="rect" coords="700,400,1000,650" href="scene-2-4.html" alt="Chemin du Jour">
     
-    <a class="link-button" href="assets/Arbres fractals et portails lumineux.png">Portail fractal</a>
-    <a class="link-button" href="assets/Forêt Enchantée Lumineuse.png">Lumière enchantée</a>
-    <a class="link-button" href="assets/Forêt enchantée et château majestueux.png">Château majestueux</a>
-    <a class="link-button" href="assets/Forêt magique et château lointain.png">Château lointain</a>
-  </div>
+    <!-- Chemin de la Nuit (à gauche) -->
+    <area shape="rect" coords="200,400,500,650" href="scene-3-5.html" alt="Chemin de la Nuit">
+  </map>
 </body>
 </html>
