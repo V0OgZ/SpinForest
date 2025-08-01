@@ -17,11 +17,22 @@ function navigate(id) {
 }
 
 function rejectCode() {
-  const sound = document.getElementById("failSound");
-  if (sound) sound.play().catch(() => {});
-  const err = document.getElementById("err");
-  if (err) err.innerText = "❌ Tatouage non activé. Revenez plus tard.";
+  const code = document.getElementById('code').value.trim();
+  const errorDiv = document.getElementById('err');
+  const audio = document.getElementById('failSound');
+  const digipad = document.querySelector('.digipad');
+
+  if (code === 'GRUUM') {
+    window.location.href = 'https://v0ogz.github.io/Heroes-of-Time/';
+  } else {
+    errorDiv.textContent = '✖ Rune incorrecte';
+    audio.currentTime = 0;
+    audio.play();
+    digipad.classList.add('shake');
+    setTimeout(() => digipad.classList.remove('shake'), 500);
+  }
 }
+
 
 window.addEventListener("DOMContentLoaded", () => {
   const sceneId = window.location.hash.replace('#', '') || 'scene-H';

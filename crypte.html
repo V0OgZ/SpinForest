@@ -1,58 +1,126 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Crypte - Chemin de Nuit</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypte Runique</title>
+  <link rel="stylesheet" href="spells/style.css">
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      background-image: url('assets/creep.png');
-      background-size: cover;
-      background-position: center;
-      font-family: "Georgia", serif;
+      height: 100vh;
+      background: url('spells/assets/Crypte.png') center/cover no-repeat;
+      font-family: 'Georgia', serif;
       color: #f0e6d2;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
-    h1 {
-      text-shadow: 0 0 15px #000000;
+    .crypte-container {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      animation: fadeIn 1s ease-in;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      border: 2px solid #999;
-      border-radius: 8px;
+    .digipad {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .rune {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #aaa;
+      box-shadow: 0 0 12px rgba(255,255,255,0.2);
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    button:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: #ccc;
+    .rune:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 16px rgba(255,255,255,0.4);
+    }
+
+    .triangle {
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+
+    .losange {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    .cercle {
+      border-radius: 50%;
+    }
+
+    .error-msg {
+      margin-top: 20px;
+      color: red;
+      font-weight: bold;
+      animation: shake 0.4s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
     }
   </style>
 </head>
 <body>
-  <h1>🌑 Crypte d’Avalon</h1>
-  <p>Un lieu ancien où les voix résonnent encore...</p>
-  <button onclick="goBackToIndex()">↩️ Retour au Portail</button>
+  <div class="crypte-container">
+    <h1>🔐 Crypte Runique</h1>
+    <p>Entre la séquence sacrée…</p>
+    <div class="digipad">
+      <div class="rune triangle" onclick="enterRune('triangle')"></div>
+      <div class="rune losange" onclick="enterRune('losange')"></div>
+      <div class="rune cercle" onclick="enterRune('cercle')"></div>
+    </div>
+    <div id="err" class="error-msg"></div>
+  </div>
+
+  <audio id="failSound" src="spells/assets/echec.mp3" preload="auto"></audio>
 
   <script>
-    function goBackToIndex() {
-      window.location.href = "index.html";
+    let sequence = [];
+    const correctSequence = ['triangle', 'cercle', 'losange'];
+
+    function enterRune(shape) {
+      sequence.push(shape);
+      if (sequence.length === 3) {
+        checkCode();
+      }
+    }
+
+    function checkCode() {
+      const audio = document.getElementById('failSound');
+      const errDiv = document.getElementById('err');
+      if (JSON.stringify(sequence) === JSON.stringify(correctSequence)) {
+        window.location.href = 'https://v0ogz.github.io/Heroes-of-Time/';
+      } else {
+        errDiv.textContent = '✖ Séquence incorrecte';
+        audio.currentTime = 0;
+        audio.play();
+        errDiv.style.animation = 'shake 0.4s';
+        void errDiv.offsetWidth;
+        errDiv.style.animation = 'shake 0.4s';
+        sequence = [];
+      }
     }
   </script>
 </body>
