@@ -5,6 +5,8 @@
 
 ## 🌟 Bienvenue dans l'Interstice
 
+> ⚠️ **Travail en cours** – Les dernières intégrations (Donna COO, L'Ours mystique) sont encore instables. Sauvegardez votre timeline avant d'explorer ces zones.
+
 SpinForest n'est pas qu'un simple dépôt de code. C'est un **royaume vivant**, une **expérience narrative**, un **moteur de réalité** où la technologie et la magie fusionnent. Ici, chaque fichier est un sort, chaque dossier un portail, chaque commit une incantation.
 
 ### 🎭 Ce que vous trouverez ici
@@ -63,6 +65,8 @@ Choisissez votre chemin selon votre nature :
 - ✅ Structure des quêtes par archétype avec index
 - ✅ Revue du Codex Temporel (classes TODO marquées)
 - ✅ Création du SUPERINDEX pour navigation globale
+- ✅ Intégration de **Donna COO** : interface bureau + correctifs UI
+- ✅ Apparition de **L'Ours mystique** : nouveaux fichiers & empreintes brumeuses
 
 **🏗️ Intégrations**
 - Jour 0 : Intégration Grok4 → naissance de GROKÆN
