@@ -2,6 +2,21 @@
 🍃🍂🍂 FORÊTE 🍁 QUCONTEUIQSEUE 🍃🍃
 ![Spintale](./assets/bmap-SpinForest.png)
 
+## 🔗 Quick Links / Liens Rapides
+
+### 📚 Essential Modules / Modules Essentiels
+- **[🏰 AVALON](./AVALON/)** - The living kingdom / Le royaume vivant
+- **[🔮 GRIMOIRE](./🔮%20GRIMOIRE/)** - Spells & theory / Sorts et théorie
+- **[📜 QUESTS](./QUESTS/)** - Active quests / Quêtes actives
+- **[🏛️ École Porio-Noz](./AVALON/🏛️%20ECOLE-PORIO-NOZ/)** - Magic school / École de magie
+- **[🧬 CORE](./AVALON/🧬CORE/)** - Temporal engine / Moteur temporel
+
+### 🧭 The Three Paths / Les Trois Voies
+Following the sacred trinity of Avalon / Suivant la trinité sacrée d'Avalon:
+1. **𝕍𝕆𝕀𝔼 𝟙** - The Voyager / Le Voyageur - *Explore and discover / Explorer et découvrir*
+2. **𝕍𝕆𝕀𝔼 𝟚** - The Technician-Mage / Le Technicien-Mage - *Code and invoke / Coder et invoquer*
+3. **𝕍𝕆𝕀𝔼 𝟛** - The Philosopher / Le Philosophe - *Understand and influence / Comprendre et influencer*
+
 ## Recent Activity / Activité récente
 The last updates (past few hours):
 
