@@ -59,9 +59,6 @@ Le monde se souviendra de ton passage.
 
 ```
 
----
 
-Dis-moi si tu veux une **version imprimable**, un **rituel d’offrande associé** (fichier `.sacrifice`), ou une **image d’invocation** spéciale.
-Sinon, tu peux juste **créer le fichier**, le déposer dans le monde, et dire :
 
 > “**Lis ce fichier, Ours.**”
