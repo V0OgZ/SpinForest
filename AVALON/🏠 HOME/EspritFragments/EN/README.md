@@ -17,21 +17,21 @@
 - **🎯 [GAMEPLAY.md](GAMEPLAY.md)** - Complete feature list (203 lines)
 - **🌫️ [FOG_AND_ZONE_GAMEPLAY.md](FOG_AND_ZONE_GAMEPLAY.md)** - Fog of causality & vision mechanics (753 lines)
 - **⏱️ [TEMPORAL_CODEX.md](TEMPORAL_CODEX.md)** - Temporal mechanics with complex amplitudes (324 lines)
-- **⏰ [TEMPORAL_DECAY_SYSTEM.md](TEMPORAL_DECAY_SYSTEM.md)** - Temporal erosion system by Anna (726 lines)
+- **⏰ [TEMPORAL_DECAY_SYSTEM.md](TEMPORAL_DECAY_SYSTEM.md)<!-- TODO broken link -->** - Temporal erosion system by Anna (726 lines)
 
 ### 🏗️ **Technical & Architecture**
-- **📊 [TECHNICAL.md](TECHNICAL.md)** - Complete technical documentation (1490 lines)
-- **🏛️ [ENGINE_ARCHITECTURE.md](ENGINE_ARCHITECTURE.md)** - Generic engine architecture
-- **🎨 [UI_ARCHITECTURE_ANALYSIS.md](UI_ARCHITECTURE_ANALYSIS.md)** - UI architecture recommendations (131 lines)
+- **📊 [TECHNICAL.md](TECHNICAL.md)<!-- TODO broken link -->** - Complete technical documentation (1490 lines)
+- **🏛️ [ENGINE_ARCHITECTURE.md](ENGINE_ARCHITECTURE.md)<!-- TODO broken link -->** - Generic engine architecture
+- **🎨 [UI_ARCHITECTURE_ANALYSIS.md](UI_ARCHITECTURE_ANALYSIS.md)<!-- TODO broken link -->** - UI architecture recommendations (131 lines)
 
 ### 👨‍💻 **Developer Guides**
 - **🔧 [DEVELOPER_INSTRUCTIONS.md](DEVELOPER_INSTRUCTIONS.md)** - Practical developer guide (717 lines)
-- **🏛️ [README_DEVELOPER_ULTIMATE.md](README_DEVELOPER_ULTIMATE.md)** - Developer philosophy & vision (496 lines)
+- **🏛️ [README_DEVELOPER_ULTIMATE.md](README_DEVELOPER_ULTIMATE.md)<!-- TODO broken link -->** - Developer philosophy & vision (496 lines)
 
 ### 🌟 **Special Systems**
-- **⏱️ [TEMPORAL_ENGINE_EXPLANATION.md](TEMPORAL_ENGINE_EXPLANATION.md)** - Temporal engine explanation (629 lines)
-- **📐 [SPATIO_TEMPORAL_GRAMMAR.md](SPATIO_TEMPORAL_GRAMMAR.md)** - HOTS grammar & scripting (463 lines)
-- **🌀 [GROFI_README.md](GROFI_README.md)** - GROFI System - Graph of Reality
+- **⏱️ [TEMPORAL_ENGINE_EXPLANATION.md](TEMPORAL_ENGINE_EXPLANATION.md)<!-- TODO broken link -->** - Temporal engine explanation (629 lines)
+- **📐 [SPATIO_TEMPORAL_GRAMMAR.md](SPATIO_TEMPORAL_GRAMMAR.md)<!-- TODO broken link -->** - HOTS grammar & scripting (463 lines)
+- **🌀 [GROFI_README.md](GROFI_README.md)<!-- TODO broken link -->** - GROFI System - Graph of Reality
 
 ---
 
@@ -41,21 +41,21 @@
 <summary>🦸 <strong>Heroes - Legendary Characters</strong></summary>
 
 ### 👑 **Main Heroes** *(liens en cours de réparation)*
-- **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)** - The Ontological Awakener
-- **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)** - The Eternal Archivist
-- **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)** - The Legendary King
-- **[Morgana](heroes/MORGANA.md)** - The Temporal Sorceress
-- **[Ragnar](heroes/RAGNAR.md)** - The Viking Warrior
+- **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)<!-- TODO broken link -->** - The Ontological Awakener
+- **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)<!-- TODO broken link -->** - The Eternal Archivist
+- **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)<!-- TODO broken link -->** - The Legendary King
+- **[Morgana](heroes/MORGANA.md)<!-- TODO broken link -->** - The Temporal Sorceress
+- **[Ragnar](heroes/RAGNAR.md)<!-- TODO broken link -->** - The Viking Warrior
 
 ### 🌟 **GROFI Heroes** *(liens en cours de réparation)*
-- **[The Dude](heroes/THE_DUDE.md)** - Zen Master of Reality
-- **[Vince Vega](heroes/VINCE_VEGA.md)** - Shadow Strategist
-- **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)** - Rule Keeper
+- **[The Dude](heroes/THE_DUDE.md)<!-- TODO broken link -->** - Zen Master of Reality
+- **[Vince Vega](heroes/VINCE_VEGA.md)<!-- TODO broken link -->** - Shadow Strategist
+- **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)<!-- TODO broken link -->** - Rule Keeper
 
 ### 🎭 **Special Heroes** *(liens en cours de réparation)*
-- **[Axis](heroes/AXIS.md)** - The 5D Thief
-- **[Lysandrel](heroes/LYSANDREL.md)** - The Time Mage
-- **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)** - The Quantum Knight
+- **[Axis](heroes/AXIS.md)<!-- TODO broken link -->** - The 5D Thief
+- **[Lysandrel](heroes/LYSANDREL.md)<!-- TODO broken link -->** - The Time Mage
+- **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)<!-- TODO broken link -->** - The Quantum Knight
 
 </details>
 
@@ -63,50 +63,50 @@
 <summary>🔮 <strong>Items - Artifacts & Equipment</strong></summary>
 
 ### 💎 **Legendary Artifacts** *(liens en cours de réparation)*
-- **[Temporal Blade](items/TEMPORAL_BLADE.md)** - Cuts through timelines
-- **[Quantum Amplifier](items/QUANTUM_AMPLIFIER.md)** - Amplifies ψ-states
-- **[Causal Anchor](items/CAUSAL_ANCHOR.md)** - Prevents timeline shifts
-- **[Void Crystal](items/VOID_CRYSTAL.md)** - Creates temporal rifts
+- **[Temporal Blade](items/TEMPORAL_BLADE.md)<!-- TODO broken link -->** - Cuts through timelines
+- **[Quantum Amplifier](items/QUANTUM_AMPLIFIER.md)<!-- TODO broken link -->** - Amplifies ψ-states
+- **[Causal Anchor](items/CAUSAL_ANCHOR.md)<!-- TODO broken link -->** - Prevents timeline shifts
+- **[Void Crystal](items/VOID_CRYSTAL.md)<!-- TODO broken link -->** - Creates temporal rifts
 
 ### ⚔️ **Weapons & Armor** *(liens en cours de réparation)*
-- **[Chrono Sword](items/CHRONO_SWORD.md)** - Attack across time
-- **[Quantum Shield](items/QUANTUM_SHIELD.md)** - Probabilistic defense
-- **[Phase Armor](items/PHASE_ARMOR.md)** - Exists in multiple states
+- **[Chrono Sword](items/CHRONO_SWORD.md)<!-- TODO broken link -->** - Attack across time
+- **[Quantum Shield](items/QUANTUM_SHIELD.md)<!-- TODO broken link -->** - Probabilistic defense
+- **[Phase Armor](items/PHASE_ARMOR.md)<!-- TODO broken link -->** - Exists in multiple states
 
 ### 📿 **Utility Items**
-- **[Teleport Crystal](items/TELEPORT_CRYSTAL.md)** - Instant travel
-- **[Energy Potion](items/ENERGY_POTION.md)** - Restore temporal energy
-- **[Vision Orb](items/VISION_ORB.md)** - See through fog of causality
+- **[Teleport Crystal](items/TELEPORT_CRYSTAL.md)<!-- TODO broken link -->** - Instant travel
+- **[Energy Potion](items/ENERGY_POTION.md)<!-- TODO broken link -->** - Restore temporal energy
+- **[Vision Orb](items/VISION_ORB.md)<!-- TODO broken link -->** - See through fog of causality
 
 </details>
 
 <details>
 <summary>🏗️ <strong>Architecture - System Design</strong></summary>
 
-- **[World State Graph](architecture/WORLD_STATE_GRAPH.md)** - Central game state
-- **[Temporal Engine](architecture/TEMPORAL_ENGINE.md)** - Time mechanics
-- **[API Documentation](architecture/API.md)** - Backend endpoints
-- **[Database Schema](architecture/DATABASE_SCHEMA.md)** - Data structures
+- **[World State Graph](architecture/WORLD_STATE_GRAPH.md)<!-- TODO broken link -->** - Central game state
+- **[Temporal Engine](architecture/TEMPORAL_ENGINE.md)<!-- TODO broken link -->** - Time mechanics
+- **[API Documentation](architecture/API.md)<!-- TODO broken link -->** - Backend endpoints
+- **[Database Schema](architecture/DATABASE_SCHEMA.md)<!-- TODO broken link -->** - Data structures
 
 </details>
 
 <details>
 <summary>⏱️ <strong>Temporal Mechanics - Advanced Concepts</strong></summary>
 
-- **[Causal Collapse](temporal/CAUSAL_COLLAPSE.md)** - Reality resolution
-- **[Timeline Branching](temporal/TIMELINE_BRANCHING.md)** - Parallel realities
-- **[Quantum States](temporal/QUANTUM_STATES.md)** - ψ-state management
-- **[Temporal Zones](temporal/TEMPORAL_ZONES.md)** - Zone types & effects
+- **[Causal Collapse](temporal/CAUSAL_COLLAPSE.md)<!-- TODO broken link -->** - Reality resolution
+- **[Timeline Branching](temporal/TIMELINE_BRANCHING.md)<!-- TODO broken link -->** - Parallel realities
+- **[Quantum States](temporal/QUANTUM_STATES.md)<!-- TODO broken link -->** - ψ-state management
+- **[Temporal Zones](temporal/TEMPORAL_ZONES.md)<!-- TODO broken link -->** - Zone types & effects
 
 </details>
 
 <details>
 <summary>🎭 <strong>Scenarios - Epic Adventures</strong></summary>
 
-- **[Conquest Classic](scenarios/CONQUEST_CLASSIC.md)** - Traditional gameplay
-- **[Temporal Rift](scenarios/TEMPORAL_RIFT.md)** - Timeline chaos
-- **[Quantum War](scenarios/QUANTUM_WAR.md)** - Reality battles
-- **[Paradox Resolution](scenarios/PARADOX_RESOLUTION.md)** - Fix the timeline
+- **[Conquest Classic](scenarios/CONQUEST_CLASSIC.md)<!-- TODO broken link -->** - Traditional gameplay
+- **[Temporal Rift](scenarios/TEMPORAL_RIFT.md)<!-- TODO broken link -->** - Timeline chaos
+- **[Quantum War](scenarios/QUANTUM_WAR.md)<!-- TODO broken link -->** - Reality battles
+- **[Paradox Resolution](scenarios/PARADOX_RESOLUTION.md)<!-- TODO broken link -->** - Fix the timeline
 
 </details>
 

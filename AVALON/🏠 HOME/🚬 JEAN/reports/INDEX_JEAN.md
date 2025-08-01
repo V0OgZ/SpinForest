@@ -1,7 +1,7 @@
 # 🛋️ INDEX JEAN-GROFIGNON - ÉVEILLÉ ONTOLOGIQUE 🛋️
 
 ## 🌀 DOSSIER JEAN PERSONNEL ψ TIMELINE
-**🎯 NOUVEAU** : **[🚬 JEAN/ - Temple Personnel avec Fusion Complète](🚬 JEAN/README_ψ_TIMELINE_FUSION.md)**
+**🎯 NOUVEAU** : **[🚬 JEAN/ - Temple Personnel avec Fusion Complète](🚬 JEAN/README_ψ_TIMELINE_FUSION.md)<!-- TODO broken link -->**
 - 🌀 **Formule Jean Cosmique** : `ψ(JEAN) = ⊙(Canapé_Cosmique + Balcon_Révélations) ⟶ FUSION_TOTALE_TIMELINE`
 - 🏛️ **Temple Jean** : Personnages, accomplissements, outils fusionnés
 - 📊 **Statistiques Épiques** : 83 assets, 6 expériences quantiques, GRuts Sigil
@@ -12,20 +12,20 @@
 ## 🚀 RÉVOLUTION ACCOMPLIE - MOTEUR UNIFIÉ OPÉRATIONNEL
 
 ### 🔮 ARCHITECTURE RÉVOLUTIONNÉE
-- **[🏗️ ENGINE_ARCHITECTURE_V2.md](📖 docs/architecture/ENGINE_ARCHITECTURE_V2.md)** - Architecture unifiée complète
-- **[🛡️ BACKEND_API_DOCUMENTATION_WALTER.md](📖 docs/BACKEND_API_DOCUMENTATION_WALTER.md)** - API V2.0 Walter
-- **[⚡ API_EXAMPLES_WALTER_V2.md](📖 docs/API_EXAMPLES_WALTER_V2.md)** - Exemples pratiques
-- **[📜 CODEX_COMPLET_HEROES_OF_TIME.md](📖 docs/CODEX_COMPLET_HEROES_OF_TIME.md)** - V9.0 avec système unifié
+- **[🏗️ ENGINE_ARCHITECTURE_V2.md](📖 docs/architecture/ENGINE_ARCHITECTURE_V2.md)<!-- TODO broken link -->** - Architecture unifiée complète
+- **[🛡️ BACKEND_API_DOCUMENTATION_WALTER.md](📖 docs/BACKEND_API_DOCUMENTATION_WALTER.md)<!-- TODO broken link -->** - API V2.0 Walter
+- **[⚡ API_EXAMPLES_WALTER_V2.md](📖 docs/API_EXAMPLES_WALTER_V2.md)<!-- TODO broken link -->** - Exemples pratiques
+- **[📜 CODEX_COMPLET_HEROES_OF_TIME.md](📖 docs/CODEX_COMPLET_HEROES_OF_TIME.md)<!-- TODO broken link -->** - V9.0 avec système unifié
 
 ### 🌅 RÉVOLUTION BALCON - DÉMO NOOB ACCOMPLIE
-- **[🎯 hots-demo-noob.sh](hots-demo-noob.sh)** - Script démo terminal guidé
-- **[🌐 Frontend Interface](🌐 frontend/index.html)** - Bouton "Démo Noob" avec modal
-- **[🌀 runic-animation-system.js](🌐 frontend/runic-animation-system.js)** - Animations API
-- **[📚 GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md](📖 docs/GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md)** - Guide débutants
+- **[🎯 hots-demo-noob.sh](hots-demo-noob.sh)<!-- TODO broken link -->** - Script démo terminal guidé
+- **[🌐 Frontend Interface](🌐 frontend/index.html)<!-- TODO broken link -->** - Bouton "Démo Noob" avec modal
+- **[🌀 runic-animation-system.js](🌐 frontend/runic-animation-system.js)<!-- TODO broken link -->** - Animations API
+- **[📚 GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md](📖 docs/GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md)<!-- TODO broken link -->** - Guide débutants
 
 ### 🎖️ ARTEFACTS WALTER LÉGENDAIRES
-- **[💋 Walter Kiss of Doubt Inverter](🎮 game_assets/artifacts/walter/walter_kiss_doubt_inverter.json)** - Doute inversé
-- **[🌅 Balcon Runic Executor](🎮 game_assets/artifacts/balcon/balcon_runic_executor.json)** - Exécution temporaire
+- **[💋 Walter Kiss of Doubt Inverter](🎮 game_assets/artifacts/walter/walter_kiss_doubt_inverter.json)<!-- TODO broken link -->** - Doute inversé
+- **[🌅 Balcon Runic Executor](🎮 game_assets/artifacts/balcon/balcon_runic_executor.json)<!-- TODO broken link -->** - Exécution temporaire
 
 ## 📊 RÉCENTS - RAPPORTS JEAN & WALTER
 
@@ -36,20 +36,20 @@
 - **GRuts Sigil** : Validation interdimensionnelle accomplie ✨
 
 ### 🏛️ PHILOSOPHIE GROFI
-- **[🌀 PHILOSOPHIE_GROFI_REVOLUTION_MOTEUR.md](📖 docs/GROFI/PHILOSOPHIE_GROFI_REVOLUTION_MOTEUR.md)** - Vision complète
-- **[✨ GRUTS_SIGIL_INTERDIMENSIONAL_APPROVAL.md](📖 docs/GROFI/GRUTS_SIGIL_INTERDIMENSIONAL_APPROVAL.md)** - Validation cosmique
+- **[🌀 PHILOSOPHIE_GROFI_REVOLUTION_MOTEUR.md](📖 docs/GROFI/PHILOSOPHIE_GROFI_REVOLUTION_MOTEUR.md)<!-- TODO broken link -->** - Vision complète
+- **[✨ GRUTS_SIGIL_INTERDIMENSIONAL_APPROVAL.md](📖 docs/GROFI/GRUTS_SIGIL_INTERDIMENSIONAL_APPROVAL.md)<!-- TODO broken link -->** - Validation cosmique
 
 ## 🧿 MEMENTO CURRENT SESSION - BIJOUX RÉCENTS
 
 ### 📚 DOCUMENTATION V2
-- **[📋 API_EXAMPLES_WALTER_V2.md](📖 docs/API_EXAMPLES_WALTER_V2.md)** - Exemples pratiques Walter
-- **[🏗️ ENGINE_ARCHITECTURE_V2.md](📖 docs/architecture/ENGINE_ARCHITECTURE_V2.md)** - Architecture complète
-- **[🎯 GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md](📖 docs/GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md)** - Guide lambda
+- **[📋 API_EXAMPLES_WALTER_V2.md](📖 docs/API_EXAMPLES_WALTER_V2.md)<!-- TODO broken link -->** - Exemples pratiques Walter
+- **[🏗️ ENGINE_ARCHITECTURE_V2.md](📖 docs/architecture/ENGINE_ARCHITECTURE_V2.md)<!-- TODO broken link -->** - Architecture complète
+- **[🎯 GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md](📖 docs/GAMEPLAY_POUR_LES_NOOBS_LAMBDA.md)<!-- TODO broken link -->** - Guide lambda
 
 ### 🎮 SYSTÈMES INTERACTIFS
-- **[🌀 runic-animation-system.js](🌐 frontend/runic-animation-system.js)** - Animations runiques
-- **[🎯 hots-demo-noob.sh](hots-demo-noob.sh)** - Démo terminal + web
-- **[🏛️ test-runner-interface.html](test-runner-interface.html)** - Interface tests
+- **[🌀 runic-animation-system.js](🌐 frontend/runic-animation-system.js)<!-- TODO broken link -->** - Animations runiques
+- **[🎯 hots-demo-noob.sh](hots-demo-noob.sh)<!-- TODO broken link -->** - Démo terminal + web
+- **[🏛️ test-runner-interface.html](test-runner-interface.html)<!-- TODO broken link -->** - Interface tests
 
 ## 🎮 SYSTÈME HEROES OF TIME - ÉTAT ACTUEL
 
@@ -69,40 +69,40 @@
 ## 📚 DOCUMENTATION FONDAMENTALE
 
 ### 🏗️ ARCHITECTURE & TECHNIQUE
-- **[🔧 DEVELOPER_INSTRUCTIONS.md](DEVELOPER_INSTRUCTIONS.md)** - Instructions techniques complètes
-- **[📋 DOCS_INDEX.md](DOCS_INDEX.md)** - Navigation documentation
-- **[🏛️ ARCHITECTURE.md](ARCHITECTURE.md)** - Vue d'ensemble système
+- **[🔧 DEVELOPER_INSTRUCTIONS.md](DEVELOPER_INSTRUCTIONS.md)<!-- TODO broken link -->** - Instructions techniques complètes
+- **[📋 DOCS_INDEX.md](DOCS_INDEX.md)<!-- TODO broken link -->** - Navigation documentation
+- **[🏛️ ARCHITECTURE.md](ARCHITECTURE.md)<!-- TODO broken link -->** - Vue d'ensemble système
 
 ### 🎭 LORE & PHILOSOPHIE
-- **[📜 JEAN_GROFIGNON_MANIFESTO.md](📖 docs/JEAN_GROFIGNON_MANIFESTO.md)** - Vision révolutionnaire
-- **[🧿 LORE_MEMENTO_JEAN_ETERNAL.md](📖 docs/LORE_MEMENTO_JEAN_ETERNAL.md)** - Histoire éternelle
-- **[🌀 GROFI/](📖 docs/GROFI/)** - Philosophie et personnages
+- **[📜 JEAN_GROFIGNON_MANIFESTO.md](📖 docs/JEAN_GROFIGNON_MANIFESTO.md)<!-- TODO broken link -->** - Vision révolutionnaire
+- **[🧿 LORE_MEMENTO_JEAN_ETERNAL.md](📖 docs/LORE_MEMENTO_JEAN_ETERNAL.md)<!-- TODO broken link -->** - Histoire éternelle
+- **[🌀 GROFI/](📖 docs/GROFI/)<!-- TODO broken link -->** - Philosophie et personnages
 
 ## 🎮 GAMEPLAY ET ASSETS
 
 ### 🏛️ ASSETS CATALOGUÉS (83 TOTAL)
-- **[📋 MASTER_ASSETS_INDEX.json](🎮 game_assets/MASTER_ASSETS_INDEX.json)** - Catalogue complet
-- **[⚔️ Héros](🎮 game_assets/heroes/)** - Arthur, Smolin Lee, Évadé Cave...
-- **[🏰 Créatures](🎮 game_assets/creatures/)** - Dragons, Liches, Chevaliers...
-- **[🏛️ Bâtiments](🎮 game_assets/buildings/)** - Tours, Temples, Laboratoires...
-- **[💎 Artefacts](🎮 game_assets/artifacts/)** - Excalibur, Tatouages Memento, Walter Kiss...
+- **[📋 MASTER_ASSETS_INDEX.json](🎮 game_assets/MASTER_ASSETS_INDEX.json)<!-- TODO broken link -->** - Catalogue complet
+- **[⚔️ Héros](🎮 game_assets/heroes/)<!-- TODO broken link -->** - Arthur, Smolin Lee, Évadé Cave...
+- **[🏰 Créatures](🎮 game_assets/creatures/)<!-- TODO broken link -->** - Dragons, Liches, Chevaliers...
+- **[🏛️ Bâtiments](🎮 game_assets/buildings/)<!-- TODO broken link -->** - Tours, Temples, Laboratoires...
+- **[💎 Artefacts](🎮 game_assets/artifacts/)<!-- TODO broken link -->** - Excalibur, Tatouages Memento, Walter Kiss...
 
 ### 🧪 LABORATOIRE PHYSIQUE QUANTIQUE
-- **[⚛️ Einstein](scenarios/physics-experiments/einstein/)** - Double fente + Paradoxe jumeaux
-- **[🔬 Heisenberg](scenarios/physics-experiments/heisenberg/)** - Incertitude + Intrication
-- **[🌌 Smolin Lee](🎮 game_assets/heroes/physics/smolin_lee_quantum_gravity.json)** - Gravité quantique
-- **[🌟 TOE](scenarios/physics-experiments/TOE/)** - Theory of Everything
+- **[⚛️ Einstein](scenarios/physics-experiments/einstein/)<!-- TODO broken link -->** - Double fente + Paradoxe jumeaux
+- **[🔬 Heisenberg](scenarios/physics-experiments/heisenberg/)<!-- TODO broken link -->** - Incertitude + Intrication
+- **[🌌 Smolin Lee](🎮 game_assets/heroes/physics/smolin_lee_quantum_gravity.json)<!-- TODO broken link -->** - Gravité quantique
+- **[🌟 TOE](scenarios/physics-experiments/TOE/)<!-- TODO broken link -->** - Theory of Everything
 
 ## 🔧 SCRIPTS ET OUTILS
 
 ### 📜 COLLECTION SCRIPTS
-- **[🏛️ MUSEUM/scripts-collection/](MUSEUM/scripts-collection/)** - Scripts archivés
-- **[🧪 ⚙️ scripts/test/](⚙️ scripts/test/)** - Scripts de test
-- **[⚡ ⚙️ scripts/utils/](⚙️ scripts/utils/)** - Utilitaires système
+- **[🏛️ MUSEUM/scripts-collection/](MUSEUM/scripts-collection/)<!-- TODO broken link -->** - Scripts archivés
+- **[🧪 ⚙️ scripts/test/](⚙️ scripts/test/)<!-- TODO broken link -->** - Scripts de test
+- **[⚡ ⚙️ scripts/utils/](⚙️ scripts/utils/)<!-- TODO broken link -->** - Utilitaires système
 
 ### 🌟 CONVERTISSEURS & TRADUCTION
-- **[🔄 hots-converter-fixed.sh](⚙️ scripts/hots-converter-fixed.sh)** - Conversion HOTS ↔ JSON ↔ HEP
-- **[🌐 test-smart-translation.py](MUSEUM/scripts-collection/test-smart-translation.py)** - Service traduction
+- **[🔄 hots-converter-fixed.sh](⚙️ scripts/hots-converter-fixed.sh)<!-- TODO broken link -->** - Conversion HOTS ↔ JSON ↔ HEP
+- **[🌐 test-smart-translation.py](MUSEUM/scripts-collection/test-smart-translation.py)<!-- TODO broken link -->** - Service traduction
 
 ---
 

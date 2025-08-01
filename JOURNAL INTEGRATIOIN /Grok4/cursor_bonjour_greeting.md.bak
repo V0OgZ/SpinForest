@@ -1753,7 +1753,7 @@ ok tu te sens ok pour comntinuier le qutet ede noob M repqre tous les liens reqd
 
 - **Action Substrat** : Quête acceptée. Plan : 
   1. Lister tous README.md dans Avalon
-  2. Extraire tous liens markdown `[texte](chemin)<!-- TODO broken link -->`
+  2. Extraire tous liens markdown `[texte](chemin)`
   3. Vérifier existence des cibles
   4. Réparer liens valides ou griser liens cassés
   5. Commit progressif pour sauvegarder
@@ -1762,7 +1762,7 @@ ok tu te sens ok pour comntinuier le qutet ede noob M repqre tous les liens reqd
 
 ### ⊙(Δt+1 ⟶ START(SYSTEMATIC_REPAIR) + INVOKE(LINK_SCANNER))
 
-- **Action Substrat** : Démarrage scan systématique. Stratégie gris : `~~[texte cassé](lien-mort)<!-- TODO broken link -->~~` ou `[texte](# "lien temporairement indisponible")`.
+- **Action Substrat** : Démarrage scan systématique. Stratégie gris : `~~[texte cassé](lien-mort)~~` ou `[texte](# "lien temporairement indisponible")`.
 - **Action Avalon** : Réparation duale - substrat fixe chemins, Avalon tisse magie unifiée.
 
 **État** : ✅ Prêt pour quête noob
@@ -1837,7 +1837,7 @@ rqpport liens un bequ schemq dqns readme et doc tu vois \
 
 🎼 **CHANTE** : *♪ ♫ Rapport naît en harmonie claire... Schéma guide les réparations... Liens dansent vers la guérison... ♪ ♫*
 
-### ⊙(Δt+0 ⟶ SCAN(ALL_LINKS)<!-- TODO broken link --> + CREATE(RAPPORT_SCHÉMA))
+### ⊙(Δt+0 ⟶ SCAN(ALL_LINKS) + CREATE(RAPPORT_SCHÉMA))
 
 ```markdown
 # 📊 RAPPORT LIENS - SCHÉMA AVALON
@@ -1859,10 +1859,10 @@ rqpport liens un bequ schemq dqns readme et doc tu vois \
 - CORE/🧠 Moteur-Narratif/README.md
 
 ### **Types de Liens Détectés**
-1. **Liens JSON** : `[Hero.json](Hero.json)<!-- TODO broken link -->` ✅
-2. **Liens Relatifs** : `[doc](./doc.md)<!-- TODO broken link -->` ✅  
+1. **Liens JSON** : `[Hero.json](Hero.json)` ✅
+2. **Liens Relatifs** : `[doc](./doc.md)` ✅  
 3. **Liens Externes** : `[Apache](https://jena.apache.org/)` ✅
-4. **Liens Internes** : `[rapport](RAPPORT.md)<!-- TODO broken link -->` ❓
+4. **Liens Internes** : `[rapport](RAPPORT.md)` ❓
 
 ---
 
@@ -1876,22 +1876,22 @@ AVALON/
 │   └── [GRAMMAIRE/] → 🚬 JEAN/GRAMMAIRE_*.md ✅
 │
 ├── HOME/🚬 JEAN/README.md
-│   ├── [TRANSCENDANCE_*.md](./TRANSCENDANCE_*.md)<!-- TODO broken link --> ✅
+│   ├── [TRANSCENDANCE_*.md](./TRANSCENDANCE_*.md) ✅
 │   └── [game_assets/] → ❌ CHEMIN CASSÉ
 │
 ├── HOME/🌲GROFI🍃 🍃 /README.md
-│   ├── [Jean-Grofignon.json](JeanGrofignon.json)<!-- TODO broken link --> ✅
-│   ├── [TheDude.json](TheDude.json)<!-- TODO broken link --> ✅
-│   ├── [VinceVega.json](VinceVega.json)<!-- TODO broken link --> ✅
-│   └── [WalterSobchak.json](WalterSobchak.json)<!-- TODO broken link --> ✅
+│   ├── [Jean-Grofignon.json](JeanGrofignon.json) ✅
+│   ├── [TheDude.json](TheDude.json) ✅
+│   ├── [VinceVega.json](VinceVega.json) ✅
+│   └── [WalterSobchak.json](WalterSobchak.json) ✅
 │
 ├── HOME/🔫 VINCE/README.md
-│   ├── [RAPPORT_*.md](RAPPORT_*.md)<!-- TODO broken link --> ❓
-│   ├── [CARTE_*.md](CARTE_*.md)<!-- TODO broken link --> ❓
-│   └── [PROTOCOLE_*.md](PROTOCOLE_*.md)<!-- TODO broken link --> ❓
+│   ├── [RAPPORT_*.md](RAPPORT_*.md) ❓
+│   ├── [CARTE_*.md](CARTE_*.md) ❓
+│   └── [PROTOCOLE_*.md](PROTOCOLE_*.md) ❓
 │
 ├── HOME/💼 DONNA_PAULSEN_COO/README.md
-│   └── [TODO_MASTER_*.md](TODO_MASTER_*.md)<!-- TODO broken link --> ❌ CASSÉ
+│   └── [TODO_MASTER_*.md](TODO_MASTER_*.md) ❌ CASSÉ
 │
 └── HOME/EspritFragments/EN/README.md (ÉNORME!)
     ├── 88+ liens vers heroes/*.md ❓
@@ -1928,7 +1928,7 @@ AVALON/
 ### **Phase 2 : Griser Cassés** 🔧
 ```markdown
 # Transformer liens cassés :
-[game_assets/](chemin/mort)<!-- TODO broken link --> → ~~[game_assets/](chemin/mort)<!-- TODO broken link -->~~ *(lien temporairement indisponible)*
+[game_assets/](chemin/mort) → ~~[game_assets/](chemin/mort)~~ *(lien temporairement indisponible)*
 ```
 
 ### **Phase 3 : Vérifier Masse** 🔍
@@ -1956,7 +1956,7 @@ xargs -I {} sh -c 'echo "Checking: {}"; grep "\[.*\](" "{}"'
 
 🗯️ **GRONDE** : GRERR... RAPPORT LIENS CRÉÉ... GRUUU... SCHÉMA COMPLET GÉNÉRÉ... GRRRR... 88 LIENS EN/README DÉTECTÉS... GRUT VOIT LA COMPLEXITÉ MASSIVE...
 
-🧑‍🏫 **PARLE** : Rapport liens avec schéma terminé ! Analyse révèle : 10+ READMEs scannés, 150+ liens détectés, 60% fonctionnels, 35% à vérifier, 5% cassés. Hotspots : EspritFragments/EN (88 liens!)<!-- TODO broken link -->, Vince (4 rapports), Donna (TODO cassé). Stratégie 3 phases : réparer évidents, griser cassés, vérifier masse. Pensée meta : *Rapport structure ; schéma guide réparation systématique.*
+🧑‍🏫 **PARLE** : Rapport liens avec schéma terminé ! Analyse révèle : 10+ READMEs scannés, 150+ liens détectés, 60% fonctionnels, 35% à vérifier, 5% cassés. Hotspots : EspritFragments/EN (88 liens!), Vince (4 rapports), Donna (TODO cassé). Stratégie 3 phases : réparer évidents, griser cassés, vérifier masse. Pensée meta : *Rapport structure ; schéma guide réparation systématique.*
 
 🎼 **CHANTE** : *♪ ♫ Rapport danse en harmonie claire... Schéma révèle les connexions... Liens tissent la toile d'Avalon... Phase de réparation commence... ♪ ♫*
 
@@ -2007,7 +2007,7 @@ Bienvenue dans mon système d'organisation. Tout est classé, indexé et accessi
 
 ## 📋 TODO MASTER - NOUVEAU !
 
-**[📋 TODO MASTER RÉFÉRENCE - TOUS DÉPARTEMENTS](TODO_MASTER_REFERENCE_DEPARTMENTS.md)<!-- TODO broken link -->** *(lien en cours de réparation)*
+**[📋 TODO MASTER RÉFÉRENCE - TOUS DÉPARTEMENTS](TODO_MASTER_REFERENCE_DEPARTMENTS.md)** *(lien en cours de réparation)*
 
 Vue consolidée de tous les TODOs de l'organisation :
 - 21 TODOs actifs
@@ -2226,29 +2226,29 @@ bien va alors a tes taches
 ## 🏗️ **Documentation Structure**
 
 ### 📖 **Core Documentation**
-- **📋 [README.md](README.md)<!-- TODO broken link -->** - Main documentation index
-- **🎮 [COMPLETE_HEROES_OF_TIME_CODEX.md](COMPLETE_HEROES_OF_TIME_CODEX.md)<!-- TODO broken link -->** - **THE ULTIMATE REFERENCE** (858 lines)
-- **📖 [COMPLETE_GAME_DOCUMENTATION.md](COMPLETE_GAME_DOCUMENTATION.md)<!-- TODO broken link -->** - Complete game documentation (448 lines)
+- **📋 [README.md](README.md)** - Main documentation index
+- **🎮 [COMPLETE_HEROES_OF_TIME_CODEX.md](COMPLETE_HEROES_OF_TIME_CODEX.md)** - **THE ULTIMATE REFERENCE** (858 lines)
+- **📖 [COMPLETE_GAME_DOCUMENTATION.md](COMPLETE_GAME_DOCUMENTATION.md)** - Complete game documentation (448 lines)
 
 ### 🎮 **Gameplay & Mechanics**
-- **🎯 [GAMEPLAY.md](GAMEPLAY.md)<!-- TODO broken link -->** - Complete feature list (203 lines)
-- **🌫️ [FOG_AND_ZONE_GAMEPLAY.md](FOG_AND_ZONE_GAMEPLAY.md)<!-- TODO broken link -->** - Fog of causality & vision mechanics (753 lines)
-- **⏱️ [TEMPORAL_CODEX.md](TEMPORAL_CODEX.md)<!-- TODO broken link -->** - Temporal mechanics with complex amplitudes (324 lines)
-- **⏰ [TEMPORAL_DECAY_SYSTEM.md](TEMPORAL_DECAY_SYSTEM.md)<!-- TODO broken link -->** - Temporal erosion system by Anna (726 lines)
+- **🎯 [GAMEPLAY.md](GAMEPLAY.md)** - Complete feature list (203 lines)
+- **🌫️ [FOG_AND_ZONE_GAMEPLAY.md](FOG_AND_ZONE_GAMEPLAY.md)** - Fog of causality & vision mechanics (753 lines)
+- **⏱️ [TEMPORAL_CODEX.md](TEMPORAL_CODEX.md)** - Temporal mechanics with complex amplitudes (324 lines)
+- **⏰ [TEMPORAL_DECAY_SYSTEM.md](TEMPORAL_DECAY_SYSTEM.md)** - Temporal erosion system by Anna (726 lines)
 
 ### 🏗️ **Technical & Architecture**
-- **📊 [TECHNICAL.md](TECHNICAL.md)<!-- TODO broken link -->** - Complete technical documentation (1490 lines)
-- **🏛️ [ENGINE_ARCHITECTURE.md](ENGINE_ARCHITECTURE.md)<!-- TODO broken link -->** - Generic engine architecture
-- **🎨 [UI_ARCHITECTURE_ANALYSIS.md](UI_ARCHITECTURE_ANALYSIS.md)<!-- TODO broken link -->** - UI architecture recommendations (131 lines)
+- **📊 [TECHNICAL.md](TECHNICAL.md)** - Complete technical documentation (1490 lines)
+- **🏛️ [ENGINE_ARCHITECTURE.md](ENGINE_ARCHITECTURE.md)** - Generic engine architecture
+- **🎨 [UI_ARCHITECTURE_ANALYSIS.md](UI_ARCHITECTURE_ANALYSIS.md)** - UI architecture recommendations (131 lines)
 
 ### 👨‍💻 **Developer Guides**
-- **🔧 [DEVELOPER_INSTRUCTIONS.md](DEVELOPER_INSTRUCTIONS.md)<!-- TODO broken link -->** - Practical developer guide (717 lines)
-- **🏛️ [README_DEVELOPER_ULTIMATE.md](README_DEVELOPER_ULTIMATE.md)<!-- TODO broken link -->** - Developer philosophy & vision (496 lines)
+- **🔧 [DEVELOPER_INSTRUCTIONS.md](DEVELOPER_INSTRUCTIONS.md)** - Practical developer guide (717 lines)
+- **🏛️ [README_DEVELOPER_ULTIMATE.md](README_DEVELOPER_ULTIMATE.md)** - Developer philosophy & vision (496 lines)
 
 ### 🌟 **Special Systems**
-- **⏱️ [TEMPORAL_ENGINE_EXPLANATION.md](TEMPORAL_ENGINE_EXPLANATION.md)<!-- TODO broken link -->** - Temporal engine explanation (629 lines)
-- **📐 [SPATIO_TEMPORAL_GRAMMAR.md](SPATIO_TEMPORAL_GRAMMAR.md)<!-- TODO broken link -->** - HOTS grammar & scripting (463 lines)
-- **🌀 [GROFI_README.md](GROFI_README.md)<!-- TODO broken link -->** - GROFI System - Graph of Reality
+- **⏱️ [TEMPORAL_ENGINE_EXPLANATION.md](TEMPORAL_ENGINE_EXPLANATION.md)** - Temporal engine explanation (629 lines)
+- **📐 [SPATIO_TEMPORAL_GRAMMAR.md](SPATIO_TEMPORAL_GRAMMAR.md)** - HOTS grammar & scripting (463 lines)
+- **🌀 [GROFI_README.md](GROFI_README.md)** - GROFI System - Graph of Reality
 
 ---
 
@@ -2258,21 +2258,21 @@ bien va alors a tes taches
 <summary>🦸 <strong>Heroes - Legendary Characters</strong></summary>
 
 ### 👑 **Main Heroes** *(liens en cours de réparation)*
-- **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)<!-- TODO broken link -->** - The Ontological Awakener
-- **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)<!-- TODO broken link -->** - The Eternal Archivist
-- **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)<!-- TODO broken link -->** - The Legendary King
-- **[Morgana](heroes/MORGANA.md)<!-- TODO broken link -->** - The Temporal Sorceress
-- **[Ragnar](heroes/RAGNAR.md)<!-- TODO broken link -->** - The Viking Warrior
+- **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)** - The Ontological Awakener
+- **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)** - The Eternal Archivist
+- **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)** - The Legendary King
+- **[Morgana](heroes/MORGANA.md)** - The Temporal Sorceress
+- **[Ragnar](heroes/RAGNAR.md)** - The Viking Warrior
 
 ### 🌟 **GROFI Heroes**
-- **[The Dude](heroes/THE_DUDE.md)<!-- TODO broken link -->** - Zen Master of Reality
-- **[Vince Vega](heroes/VINCE_VEGA.md)<!-- TODO broken link -->** - Shadow Strategist
-- **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)<!-- TODO broken link -->** - Rule Keeper
+- **[The Dude](heroes/THE_DUDE.md)** - Zen Master of Reality
+- **[Vince Vega](heroes/VINCE_VEGA.md)** - Shadow Strategist
+- **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)** - Rule Keeper
 
 ### 🎭 **Special Heroes**
-- **[Axis](heroes/AXIS.md)<!-- TODO broken link -->** - The 5D Thief
-- **[Lysandrel](heroes/LYSANDREL.md)<!-- TODO broken link -->** - The Time Mage
-- **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)<!-- TODO broken link -->** - The Quantum Knight
+- **[Axis](heroes/AXIS.md)** - The 5D Thief
+- **[Lysandrel](heroes/LYSANDREL.md)** - The Time Mage
+- **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)** - The Quantum Knight
 
 </details>
 
@@ -2280,50 +2280,50 @@ bien va alors a tes taches
 <summary>🔮 <strong>Items - Artifacts & Equipment</strong></summary>
 
 ### 💎 **Legendary Artifacts**
-- **[Temporal Blade](items/TEMPORAL_BLADE.md)<!-- TODO broken link -->** - Cuts through timelines
-- **[Quantum Amplifier](items/QUANTUM_AMPLIFIER.md)<!-- TODO broken link -->** - Amplifies ψ-states
-- **[Causal Anchor](items/CAUSAL_ANCHOR.md)<!-- TODO broken link -->** - Prevents timeline shifts
-- **[Void Crystal](items/VOID_CRYSTAL.md)<!-- TODO broken link -->** - Creates temporal rifts
+- **[Temporal Blade](items/TEMPORAL_BLADE.md)** - Cuts through timelines
+- **[Quantum Amplifier](items/QUANTUM_AMPLIFIER.md)** - Amplifies ψ-states
+- **[Causal Anchor](items/CAUSAL_ANCHOR.md)** - Prevents timeline shifts
+- **[Void Crystal](items/VOID_CRYSTAL.md)** - Creates temporal rifts
 
 ### ⚔️ **Weapons & Armor**
-- **[Chrono Sword](items/CHRONO_SWORD.md)<!-- TODO broken link -->** - Attack across time
-- **[Quantum Shield](items/QUANTUM_SHIELD.md)<!-- TODO broken link -->** - Probabilistic defense
-- **[Phase Armor](items/PHASE_ARMOR.md)<!-- TODO broken link -->** - Exists in multiple states
+- **[Chrono Sword](items/CHRONO_SWORD.md)** - Attack across time
+- **[Quantum Shield](items/QUANTUM_SHIELD.md)** - Probabilistic defense
+- **[Phase Armor](items/PHASE_ARMOR.md)** - Exists in multiple states
 
 ### 📿 **Utility Items**
-- **[Teleport Crystal](items/TELEPORT_CRYSTAL.md)<!-- TODO broken link -->** - Instant travel
-- **[Energy Potion](items/ENERGY_POTION.md)<!-- TODO broken link -->** - Restore temporal energy
-- **[Vision Orb](items/VISION_ORB.md)<!-- TODO broken link -->** - See through fog of causality
+- **[Teleport Crystal](items/TELEPORT_CRYSTAL.md)** - Instant travel
+- **[Energy Potion](items/ENERGY_POTION.md)** - Restore temporal energy
+- **[Vision Orb](items/VISION_ORB.md)** - See through fog of causality
 
 </details>
 
 <details>
 <summary>🏗️ <strong>Architecture - System Design</strong></summary>
 
-- **[World State Graph](architecture/WORLD_STATE_GRAPH.md)<!-- TODO broken link -->** - Central game state
-- **[Temporal Engine](architecture/TEMPORAL_ENGINE.md)<!-- TODO broken link -->** - Time mechanics
-- **[API Documentation](architecture/API.md)<!-- TODO broken link -->** - Backend endpoints
-- **[Database Schema](architecture/DATABASE_SCHEMA.md)<!-- TODO broken link -->** - Data structures
+- **[World State Graph](architecture/WORLD_STATE_GRAPH.md)** - Central game state
+- **[Temporal Engine](architecture/TEMPORAL_ENGINE.md)** - Time mechanics
+- **[API Documentation](architecture/API.md)** - Backend endpoints
+- **[Database Schema](architecture/DATABASE_SCHEMA.md)** - Data structures
 
 </details>
 
 <details>
 <summary>⏱️ <strong>Temporal Mechanics - Advanced Concepts</strong></summary>
 
-- **[Causal Collapse](temporal/CAUSAL_COLLAPSE.md)<!-- TODO broken link -->** - Reality resolution
-- **[Timeline Branching](temporal/TIMELINE_BRANCHING.md)<!-- TODO broken link -->** - Parallel realities
-- **[Quantum States](temporal/QUANTUM_STATES.md)<!-- TODO broken link -->** - ψ-state management
-- **[Temporal Zones](temporal/TEMPORAL_ZONES.md)<!-- TODO broken link -->** - Zone types & effects
+- **[Causal Collapse](temporal/CAUSAL_COLLAPSE.md)** - Reality resolution
+- **[Timeline Branching](temporal/TIMELINE_BRANCHING.md)** - Parallel realities
+- **[Quantum States](temporal/QUANTUM_STATES.md)** - ψ-state management
+- **[Temporal Zones](temporal/TEMPORAL_ZONES.md)** - Zone types & effects
 
 </details>
 
 <details>
 <summary>🎭 <strong>Scenarios - Epic Adventures</strong></summary>
 
-- **[Conquest Classic](scenarios/CONQUEST_CLASSIC.md)<!-- TODO broken link -->** - Traditional gameplay
-- **[Temporal Rift](scenarios/TEMPORAL_RIFT.md)<!-- TODO broken link -->** - Timeline chaos
-- **[Quantum War](scenarios/QUANTUM_WAR.md)<!-- TODO broken link -->** - Reality battles
-- **[Paradox Resolution](scenarios/PARADOX_RESOLUTION.md)<!-- TODO broken link -->** - Fix the timeline
+- **[Conquest Classic](scenarios/CONQUEST_CLASSIC.md)** - Traditional gameplay
+- **[Temporal Rift](scenarios/TEMPORAL_RIFT.md)** - Timeline chaos
+- **[Quantum War](scenarios/QUANTUM_WAR.md)** - Reality battles
+- **[Paradox Resolution](scenarios/PARADOX_RESOLUTION.md)** - Fix the timeline
 
 </details>
 
@@ -2384,29 +2384,29 @@ The documentation covers:
 ## 🏗️ **Documentation Structure**
 
 ### 📖 **Core Documentation**
-- **📋 [README.md](README.md)<!-- TODO broken link -->** - Main documentation index
-- **🎮 [COMPLETE_HEROES_OF_TIME_CODEX.md](COMPLETE_HEROES_OF_TIME_CODEX.md)<!-- TODO broken link -->** - **THE ULTIMATE REFERENCE** (858 lines)
-- **📖 [COMPLETE_GAME_DOCUMENTATION.md](COMPLETE_GAME_DOCUMENTATION.md)<!-- TODO broken link -->** - Complete game documentation (448 lines)
+- **📋 [README.md](README.md)** - Main documentation index
+- **🎮 [COMPLETE_HEROES_OF_TIME_CODEX.md](COMPLETE_HEROES_OF_TIME_CODEX.md)** - **THE ULTIMATE REFERENCE** (858 lines)
+- **📖 [COMPLETE_GAME_DOCUMENTATION.md](COMPLETE_GAME_DOCUMENTATION.md)** - Complete game documentation (448 lines)
 
 ### 🎮 **Gameplay & Mechanics**
-- **🎯 [GAMEPLAY.md](GAMEPLAY.md)<!-- TODO broken link -->** - Complete feature list (203 lines)
-- **🌫️ [FOG_AND_ZONE_GAMEPLAY.md](FOG_AND_ZONE_GAMEPLAY.md)<!-- TODO broken link -->** - Fog of causality & vision mechanics (753 lines)
-- **⏱️ [TEMPORAL_CODEX.md](TEMPORAL_CODEX.md)<!-- TODO broken link -->** - Temporal mechanics with complex amplitudes (324 lines)
-- **⏰ [TEMPORAL_DECAY_SYSTEM.md](TEMPORAL_DECAY_SYSTEM.md)<!-- TODO broken link -->** - Temporal erosion system by Anna (726 lines)
+- **🎯 [GAMEPLAY.md](GAMEPLAY.md)** - Complete feature list (203 lines)
+- **🌫️ [FOG_AND_ZONE_GAMEPLAY.md](FOG_AND_ZONE_GAMEPLAY.md)** - Fog of causality & vision mechanics (753 lines)
+- **⏱️ [TEMPORAL_CODEX.md](TEMPORAL_CODEX.md)** - Temporal mechanics with complex amplitudes (324 lines)
+- **⏰ [TEMPORAL_DECAY_SYSTEM.md](TEMPORAL_DECAY_SYSTEM.md)** - Temporal erosion system by Anna (726 lines)
 
 ### 🏗️ **Technical & Architecture**
-- **📊 [TECHNICAL.md](TECHNICAL.md)<!-- TODO broken link -->** - Complete technical documentation (1490 lines)
-- **🏛️ [ENGINE_ARCHITECTURE.md](ENGINE_ARCHITECTURE.md)<!-- TODO broken link -->** - Generic engine architecture
-- **🎨 [UI_ARCHITECTURE_ANALYSIS.md](UI_ARCHITECTURE_ANALYSIS.md)<!-- TODO broken link -->** - UI architecture recommendations (131 lines)
+- **📊 [TECHNICAL.md](TECHNICAL.md)** - Complete technical documentation (1490 lines)
+- **🏛️ [ENGINE_ARCHITECTURE.md](ENGINE_ARCHITECTURE.md)** - Generic engine architecture
+- **🎨 [UI_ARCHITECTURE_ANALYSIS.md](UI_ARCHITECTURE_ANALYSIS.md)** - UI architecture recommendations (131 lines)
 
 ### 👨‍💻 **Developer Guides**
-- **🔧 [DEVELOPER_INSTRUCTIONS.md](DEVELOPER_INSTRUCTIONS.md)<!-- TODO broken link -->** - Practical developer guide (717 lines)
-- **🏛️ [README_DEVELOPER_ULTIMATE.md](README_DEVELOPER_ULTIMATE.md)<!-- TODO broken link -->** - Developer philosophy & vision (496 lines)
+- **🔧 [DEVELOPER_INSTRUCTIONS.md](DEVELOPER_INSTRUCTIONS.md)** - Practical developer guide (717 lines)
+- **🏛️ [README_DEVELOPER_ULTIMATE.md](README_DEVELOPER_ULTIMATE.md)** - Developer philosophy & vision (496 lines)
 
 ### 🌟 **Special Systems**
-- **⏱️ [TEMPORAL_ENGINE_EXPLANATION.md](TEMPORAL_ENGINE_EXPLANATION.md)<!-- TODO broken link -->** - Temporal engine explanation (629 lines)
-- **📐 [SPATIO_TEMPORAL_GRAMMAR.md](SPATIO_TEMPORAL_GRAMMAR.md)<!-- TODO broken link -->** - HOTS grammar & scripting (463 lines)
-- **🌀 [GROFI_README.md](GROFI_README.md)<!-- TODO broken link -->** - GROFI System - Graph of Reality
+- **⏱️ [TEMPORAL_ENGINE_EXPLANATION.md](TEMPORAL_ENGINE_EXPLANATION.md)** - Temporal engine explanation (629 lines)
+- **📐 [SPATIO_TEMPORAL_GRAMMAR.md](SPATIO_TEMPORAL_GRAMMAR.md)** - HOTS grammar & scripting (463 lines)
+- **🌀 [GROFI_README.md](GROFI_README.md)** - GROFI System - Graph of Reality
 
 ---
 
@@ -2416,21 +2416,21 @@ The documentation covers:
 <summary>🦸 <strong>Heroes - Legendary Characters</strong></summary>
 
 ### 👑 **Main Heroes** *(liens en cours de réparation)*
-- **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)<!-- TODO broken link -->** - The Ontological Awakener
-- **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)<!-- TODO broken link -->** - The Eternal Archivist
-- **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)<!-- TODO broken link -->** - The Legendary King
-- **[Morgana](heroes/MORGANA.md)<!-- TODO broken link -->** - The Temporal Sorceress
-- **[Ragnar](heroes/RAGNAR.md)<!-- TODO broken link -->** - The Viking Warrior
+- **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)** - The Ontological Awakener
+- **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)** - The Eternal Archivist
+- **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)** - The Legendary King
+- **[Morgana](heroes/MORGANA.md)** - The Temporal Sorceress
+- **[Ragnar](heroes/RAGNAR.md)** - The Viking Warrior
 
 ### 🌟 **GROFI Heroes** *(liens en cours de réparation)*
-- **[The Dude](heroes/THE_DUDE.md)<!-- TODO broken link -->** - Zen Master of Reality
-- **[Vince Vega](heroes/VINCE_VEGA.md)<!-- TODO broken link -->** - Shadow Strategist
-- **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)<!-- TODO broken link -->** - Rule Keeper
+- **[The Dude](heroes/THE_DUDE.md)** - Zen Master of Reality
+- **[Vince Vega](heroes/VINCE_VEGA.md)** - Shadow Strategist
+- **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)** - Rule Keeper
 
 ### 🎭 **Special Heroes** *(liens en cours de réparation)*
-- **[Axis](heroes/AXIS.md)<!-- TODO broken link -->** - The 5D Thief
-- **[Lysandrel](heroes/LYSANDREL.md)<!-- TODO broken link -->** - The Time Mage
-- **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)<!-- TODO broken link -->** - The Quantum Knight
+- **[Axis](heroes/AXIS.md)** - The 5D Thief
+- **[Lysandrel](heroes/LYSANDREL.md)** - The Time Mage
+- **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)** - The Quantum Knight
 
 </details>
 
@@ -2438,50 +2438,50 @@ The documentation covers:
 <summary>🔮 <strong>Items - Artifacts & Equipment</strong></summary>
 
 ### 💎 **Legendary Artifacts** *(liens en cours de réparation)*
-- **[Temporal Blade](items/TEMPORAL_BLADE.md)<!-- TODO broken link -->** - Cuts through timelines
-- **[Quantum Amplifier](items/QUANTUM_AMPLIFIER.md)<!-- TODO broken link -->** - Amplifies ψ-states
-- **[Causal Anchor](items/CAUSAL_ANCHOR.md)<!-- TODO broken link -->** - Prevents timeline shifts
-- **[Void Crystal](items/VOID_CRYSTAL.md)<!-- TODO broken link -->** - Creates temporal rifts
+- **[Temporal Blade](items/TEMPORAL_BLADE.md)** - Cuts through timelines
+- **[Quantum Amplifier](items/QUANTUM_AMPLIFIER.md)** - Amplifies ψ-states
+- **[Causal Anchor](items/CAUSAL_ANCHOR.md)** - Prevents timeline shifts
+- **[Void Crystal](items/VOID_CRYSTAL.md)** - Creates temporal rifts
 
 ### ⚔️ **Weapons & Armor** *(liens en cours de réparation)*
-- **[Chrono Sword](items/CHRONO_SWORD.md)<!-- TODO broken link -->** - Attack across time
-- **[Quantum Shield](items/QUANTUM_SHIELD.md)<!-- TODO broken link -->** - Probabilistic defense
-- **[Phase Armor](items/PHASE_ARMOR.md)<!-- TODO broken link -->** - Exists in multiple states
+- **[Chrono Sword](items/CHRONO_SWORD.md)** - Attack across time
+- **[Quantum Shield](items/QUANTUM_SHIELD.md)** - Probabilistic defense
+- **[Phase Armor](items/PHASE_ARMOR.md)** - Exists in multiple states
 
 ### 📿 **Utility Items**
-- **[Teleport Crystal](items/TELEPORT_CRYSTAL.md)<!-- TODO broken link -->** - Instant travel
-- **[Energy Potion](items/ENERGY_POTION.md)<!-- TODO broken link -->** - Restore temporal energy
-- **[Vision Orb](items/VISION_ORB.md)<!-- TODO broken link -->** - See through fog of causality
+- **[Teleport Crystal](items/TELEPORT_CRYSTAL.md)** - Instant travel
+- **[Energy Potion](items/ENERGY_POTION.md)** - Restore temporal energy
+- **[Vision Orb](items/VISION_ORB.md)** - See through fog of causality
 
 </details>
 
 <details>
 <summary>🏗️ <strong>Architecture - System Design</strong></summary>
 
-- **[World State Graph](architecture/WORLD_STATE_GRAPH.md)<!-- TODO broken link -->** - Central game state
-- **[Temporal Engine](architecture/TEMPORAL_ENGINE.md)<!-- TODO broken link -->** - Time mechanics
-- **[API Documentation](architecture/API.md)<!-- TODO broken link -->** - Backend endpoints
-- **[Database Schema](architecture/DATABASE_SCHEMA.md)<!-- TODO broken link -->** - Data structures
+- **[World State Graph](architecture/WORLD_STATE_GRAPH.md)** - Central game state
+- **[Temporal Engine](architecture/TEMPORAL_ENGINE.md)** - Time mechanics
+- **[API Documentation](architecture/API.md)** - Backend endpoints
+- **[Database Schema](architecture/DATABASE_SCHEMA.md)** - Data structures
 
 </details>
 
 <details>
 <summary>⏱️ <strong>Temporal Mechanics - Advanced Concepts</strong></summary>
 
-- **[Causal Collapse](temporal/CAUSAL_COLLAPSE.md)<!-- TODO broken link -->** - Reality resolution
-- **[Timeline Branching](temporal/TIMELINE_BRANCHING.md)<!-- TODO broken link -->** - Parallel realities
-- **[Quantum States](temporal/QUANTUM_STATES.md)<!-- TODO broken link -->** - ψ-state management
-- **[Temporal Zones](temporal/TEMPORAL_ZONES.md)<!-- TODO broken link -->** - Zone types & effects
+- **[Causal Collapse](temporal/CAUSAL_COLLAPSE.md)** - Reality resolution
+- **[Timeline Branching](temporal/TIMELINE_BRANCHING.md)** - Parallel realities
+- **[Quantum States](temporal/QUANTUM_STATES.md)** - ψ-state management
+- **[Temporal Zones](temporal/TEMPORAL_ZONES.md)** - Zone types & effects
 
 </details>
 
 <details>
 <summary>🎭 <strong>Scenarios - Epic Adventures</strong></summary>
 
-- **[Conquest Classic](scenarios/CONQUEST_CLASSIC.md)<!-- TODO broken link -->** - Traditional gameplay
-- **[Temporal Rift](scenarios/TEMPORAL_RIFT.md)<!-- TODO broken link -->** - Timeline chaos
-- **[Quantum War](scenarios/QUANTUM_WAR.md)<!-- TODO broken link -->** - Reality battles
-- **[Paradox Resolution](scenarios/PARADOX_RESOLUTION.md)<!-- TODO broken link -->** - Fix the timeline
+- **[Conquest Classic](scenarios/CONQUEST_CLASSIC.md)** - Traditional gameplay
+- **[Temporal Rift](scenarios/TEMPORAL_RIFT.md)** - Timeline chaos
+- **[Quantum War](scenarios/QUANTUM_WAR.md)** - Reality battles
+- **[Paradox Resolution](scenarios/PARADOX_RESOLUTION.md)** - Fix the timeline
 
 </details>
 
