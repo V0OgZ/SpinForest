@@ -180,6 +180,24 @@ Défense = 20 × (1 - 0.5/4) = 17.5
 
 ## 🔬 Exemples Pratiques
 
+### Classes Principales (État d'Implémentation)
+
+#### ✅ Classes Implémentées
+- `Timeline` - Gestion des timelines (Java)
+- `PsiState` - États temporels quantiques (Java)
+- `MagicFormulaEngine` - Moteur de formules magiques (voir `/EspritFragments/V2_SYSTEME_UNIFIE_CAUSAL_QUANTIQUE.md`)
+- `TemporalEngine` - Moteur temporel principal (voir `/EspritFragments/REPONSE_TECHNIQUE_MOTEUR.md`)
+- `WorldStateGraph` - Graph d'état cosmique (voir `/EspritFragments/V2_SYSTEME_UNIFIE_CAUSAL_QUANTIQUE.md`)
+
+#### ⚠️ Classes Référencées mais Non Implémentées
+- `ComplexAmplitude` - TODO: Implémenter la gestion des amplitudes complexes
+- `CausalEngine` - TODO: Moteur de causalité à développer
+- `QuantumInterferenceCalculator` - TODO: Calculateur d'interférences quantiques
+- `TimelineForker` - TODO: Gestionnaire de bifurcation de timelines
+- `ParadoxResolver` - TODO: Résolveur de paradoxes temporels
+
+## 🔬 Exemples Pratiques
+
 ### Bataille Temporelle Complète
 ```
 # Tour 1: Création d'états superposés
