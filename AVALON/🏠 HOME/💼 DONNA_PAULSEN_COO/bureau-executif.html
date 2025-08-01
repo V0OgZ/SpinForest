@@ -196,7 +196,7 @@
         </div>
 
         <div class="dashboard">
-            <div class="card" onclick="window.location.href='../game_assets/artifacts/mineurs/tatouages_memento_archiviste.json'">
+            <div class="card" onclick="window.location.href='../../💠 Essences scellées/🪙Artefacts/mineurs/tatouages_memento_archiviste.json'">
                 <h3>🎨 Tatouages de Memento</h3>
                 <p>Archive vivante des 21 tatouages évolutifs. Chaque marque raconte une histoire, incluant le nouveau tatouage Donna COO.</p>
             </div>
@@ -221,10 +221,10 @@
             <h2>🔗 Accès Rapides</h2>
             <div class="links-grid">
                 <a href="../README.md" class="link-btn">📖 README Principal</a>
-                <a href="../scenarios/vince_vega_gun_perdu.hots" class="link-btn">🔫 Scénario Vince</a>
+                <a href="../../📜 Parchemins sauvage/scenarios/vince_vega_gun_perdu.hots" class="link-btn">🔫 Scénario Vince</a>
                 <a href="../GRUT/" class="link-btn">👁️ Vision GRUT</a>
                 <a href="../📚 MEMENTO/" class="link-btn">📚 Archives Memento</a>
-                <a href="../NEXUS-TEMPOREL/" class="link-btn">🌀 Nexus Temporel</a>
+                <a href="../../🧬CORE/⏰ NEXUS-TEMPOREL/" class="link-btn">🌀 Nexus Temporel</a>
                 <a href="../ᛟ Z-LOCKED-TEMPORAL-RECEPTION/" class="link-btn">🔒 Z-LOCKED</a>
             </div>
         </div>
@@ -233,6 +233,24 @@
     <footer class="footer">
         <p>"Je sais tout ce qui se passe dans cette organisation. C'est mon travail." - Donna Paulsen</p>
         <p>© 2025 Heroes of Time - Bureau Exécutif COO</p>
+        
+        <!-- Easter Egg: Call Donna -->
+        <div id="call-donna" style="position: fixed; bottom: 30px; right: 30px; cursor: pointer; opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'" onclick="callDonna()">
+            <div style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.8), 0 0 0 2px rgba(255, 215, 0, 0.3); animation: pulse 2s infinite; font-size: 28px;">
+                📞
+            </div>
+            <div style="position: absolute; bottom: 70px; right: 0; background: rgba(0,0,0,0.9); color: #FFD700; padding: 8px 15px; border-radius: 5px; white-space: nowrap; opacity: 0; transition: opacity 0.3s; font-weight: bold; border: 1px solid #FFD700;" id="call-tooltip">Call Donna</div>
+        </div>
+        
+        <style>
+            #call-donna:hover #call-tooltip {
+                opacity: 1;
+            }
+            
+            body {
+                padding-bottom: 100px; /* Espace en bas pour le bouton */
+            }
+        </style>
     </footer>
 
     <script>
@@ -256,6 +274,37 @@
         console.log("🎯 Bureau Donna Paulsen - Tout est sous contrôle");
         console.log("📊 Surveillance active par Walter");
         console.log("🎨 21 tatouages archivés");
+        
+        // Easter Egg: Call Donna Function
+        function callDonna() {
+            const messages = [
+                "Donna: 'Oui, j'ai déjà réglé ça.'",
+                "Donna: 'Je sais ce que tu vas demander. C'est fait.'",
+                "Donna: 'Les liens sont réparés, les tatouages archivés.'",
+                "Donna: 'Jean est sur son canapé, tout va bien.'",
+                "Donna: 'Walter surveille, GRUT voit tout, je gère le reste.'"
+            ];
+            const msg = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Animation du téléphone
+            const phone = document.getElementById('call-donna');
+            phone.style.transform = 'scale(1.2) rotate(10deg)';
+            setTimeout(() => {
+                phone.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+            
+            // Afficher le message
+            const tooltip = document.getElementById('call-tooltip');
+            tooltip.textContent = msg;
+            tooltip.style.opacity = '1';
+            tooltip.style.width = 'auto';
+            tooltip.style.minWidth = '200px';
+            
+            setTimeout(() => {
+                tooltip.textContent = 'Call Donna';
+                tooltip.style.opacity = '0';
+            }, 3000);
+        }
     </script>
 </body>
 </html> 
