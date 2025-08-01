@@ -40,19 +40,19 @@
 <details>
 <summary>🦸 <strong>Heroes - Legendary Characters</strong></summary>
 
-### 👑 **Main Heroes**
+### 👑 **Main Heroes** *(liens en cours de réparation)*
 - **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)** - The Ontological Awakener
 - **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)** - The Eternal Archivist
 - **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)** - The Legendary King
 - **[Morgana](heroes/MORGANA.md)** - The Temporal Sorceress
 - **[Ragnar](heroes/RAGNAR.md)** - The Viking Warrior
 
-### 🌟 **GROFI Heroes**
+### 🌟 **GROFI Heroes** *(liens en cours de réparation)*
 - **[The Dude](heroes/THE_DUDE.md)** - Zen Master of Reality
 - **[Vince Vega](heroes/VINCE_VEGA.md)** - Shadow Strategist
 - **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)** - Rule Keeper
 
-### 🎭 **Special Heroes**
+### 🎭 **Special Heroes** *(liens en cours de réparation)*
 - **[Axis](heroes/AXIS.md)** - The 5D Thief
 - **[Lysandrel](heroes/LYSANDREL.md)** - The Time Mage
 - **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)** - The Quantum Knight
@@ -62,13 +62,13 @@
 <details>
 <summary>🔮 <strong>Items - Artifacts & Equipment</strong></summary>
 
-### 💎 **Legendary Artifacts**
+### 💎 **Legendary Artifacts** *(liens en cours de réparation)*
 - **[Temporal Blade](items/TEMPORAL_BLADE.md)** - Cuts through timelines
 - **[Quantum Amplifier](items/QUANTUM_AMPLIFIER.md)** - Amplifies ψ-states
 - **[Causal Anchor](items/CAUSAL_ANCHOR.md)** - Prevents timeline shifts
 - **[Void Crystal](items/VOID_CRYSTAL.md)** - Creates temporal rifts
 
-### ⚔️ **Weapons & Armor**
+### ⚔️ **Weapons & Armor** *(liens en cours de réparation)*
 - **[Chrono Sword](items/CHRONO_SWORD.md)** - Attack across time
 - **[Quantum Shield](items/QUANTUM_SHIELD.md)** - Probabilistic defense
 - **[Phase Armor](items/PHASE_ARMOR.md)** - Exists in multiple states
