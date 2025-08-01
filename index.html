@@ -60,14 +60,41 @@
 </div>
 
 <!-- Ajout lien pour Chemin de L'Ours -->
-<h2>Chemin de L'Ours (Nouveau Portail)</h2>
-<a href="assets/ours-intro.html">Entrer</a>
+<div class="plexiglas-section">
+    <h2>Chemin de L'Ours (Nouveau Portail)</h2>
+    <a href="assets/ours-intro.html">Entrer</a>
+</div>
 
 <!-- Lien vers Bureau de Donna dans Clairière Secrète -->
-<h2>Clairière Secrète : Bureau Exécutif de Donna</h2>
-<a href="AVALON/🏠 HOME/💼 DONNA_PAULSEN_COO/bureau-executif.html">Accéder (Inverse Forestier)</a>
+<div class="plexiglas-section">
+    <h2>Clairière Secrète : Bureau Exécutif de Donna</h2>
+    <a href="AVALON/🏠 HOME/💼 DONNA_PAULSEN_COO/bureau-executif.html">Accéder (Inverse Forestier)</a>
+</div>
 
 <audio id="failSound" src="assets/echec.mp3" preload="auto"></audio>
 <script src="spells/nav.js"></script>
 </body>
 </html>
+
+<style>
+    .plexiglas-section {
+        background: rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,215,0,0.3);
+        text-align: center;
+        transition: all 0.3s;
+    }
+    .plexiglas-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+    }
+    .plexiglas-section a {
+        color: #FFD700;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
