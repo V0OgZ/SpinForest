@@ -52,8 +52,10 @@ window.onload = async function() {
     // Charger les héros depuis le backend
     await loadHeroes();
     
-    // Tester la connexion backend
-    await connectBackend();
+    // Tester la connexion backend (optionnel)
+    connectBackend().catch(() => {
+        log('⚠️ Mode hors-ligne, backend non disponible', 'error');
+    });
     
     // Démarrer le rendu
     startGameLoop();
