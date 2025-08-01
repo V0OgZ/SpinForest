@@ -40,22 +40,22 @@
 <details>
 <summary>🦸 <strong>Heroes - Legendary Characters</strong></summary>
 
-### 👑 **Main Heroes** *(liens en cours de réparation)*
-- **[Jean-Grofignon](heroes/JEAN_GROFIGNON.md)<!-- TODO broken link -->** - The Ontological Awakener
-- **[Claudius-Memento](heroes/CLAUDIUS_MEMENTO.md)<!-- TODO broken link -->** - The Eternal Archivist
-- **[Arthur Pendragon](heroes/ARTHUR_PENDRAGON.md)<!-- TODO broken link -->** - The Legendary King
-- **[Morgana](heroes/MORGANA.md)<!-- TODO broken link -->** - The Temporal Sorceress
-- **[Ragnar](heroes/RAGNAR.md)<!-- TODO broken link -->** - The Viking Warrior
+### 👑 **Main Heroes**
+- **[Jean-Grofignon](../../💠 Essences scellées/🧙 Heroes/hero_jean_grofignon.md)** - The Ontological Awakener
+- **[Claudius-Memento](../../💠 Essences scellées/🧙 Heroes/hero_claudius_memento_opus.json)** - The Eternal Archivist
+- **[Arthur Pendragon](../../💠 Essences scellées/🧙 Heroes/legendaires/ARTHUR_PENDRAGON.md)** *(lien vérifié, en attente de fichier)*
+- **[Morgana](../../💠 Essences scellées/🧙 Heroes/legendaires/MORGANA.md)** *(lien vérifié, en attente de fichier)*
+- **[Ragnar](../../💠 Essences scellées/🧙 Heroes/legendaires/RAGNAR.md)** *(lien vérifié, en attente de fichier)*
 
-### 🌟 **GROFI Heroes** *(liens en cours de réparation)*
-- **[The Dude](heroes/THE_DUDE.md)<!-- TODO broken link -->** - Zen Master of Reality
-- **[Vince Vega](heroes/VINCE_VEGA.md)<!-- TODO broken link -->** - Shadow Strategist
-- **[Walter Sobchak](heroes/WALTER_SOBCHAK.md)<!-- TODO broken link -->** - Rule Keeper
+### 🌟 **GROFI Heroes**
+- **[The Dude](../../💠 Essences scellées/🧙 Heroes/grofi/THE_DUDE.json)** - Zen Master of Reality
+- **[Vince Vega](../../💠 Essences scellées/🧙 Heroes/grofi/VINCE_VEGA.json)** - Shadow Strategist
+- **[Walter Sobchak](../../💠 Essences scellées/🧙 Heroes/grofi/WALTER_SOBCHAK.json)** - Rule Keeper
 
-### 🎭 **Special Heroes** *(liens en cours de réparation)*
-- **[Axis](heroes/AXIS.md)<!-- TODO broken link -->** - The 5D Thief
-- **[Lysandrel](heroes/LYSANDREL.md)<!-- TODO broken link -->** - The Time Mage
-- **[Hero Chlamydius](heroes/HERO_CHLAMYDIUS.md)<!-- TODO broken link -->** - The Quantum Knight
+### 🎭 **Special Heroes**
+- **[Axis](../../💠 Essences scellées/🧙 Heroes/quatrieme_mur/AXIS.md)** *(lien vérifié, en attente de fichier)*
+- **[Lysandrel](../../💠 Essences scellées/🧙 Heroes/epic/LYSANDREL.md)** *(lien vérifié, en attente de fichier)*
+- **[Hero Chlamydius](../../💠 Essences scellées/🧙 Heroes/cosmic/HERO_CHLAMYDIUS.md)** *(lien vérifié, en attente de fichier)*
 
 </details>
 
