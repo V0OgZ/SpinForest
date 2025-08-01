@@ -8,7 +8,7 @@ Bienvenue dans mon système d'organisation. Tout est classé, indexé et accessi
 
 ## 📋 TODO MASTER - NOUVEAU !
 
-**[📋 TODO MASTER RÉFÉRENCE - TOUS DÉPARTEMENTS](TODO_MASTER_REFERENCE_DEPARTMENTS.md)** *(lien en cours de réparation)*
+**[📋 TODO MASTER RÉFÉRENCE - TOUS DÉPARTEMENTS](TODO_MASTER_REFERENCE_DEPARTMENTS.md)**
 
 Vue consolidée de tous les TODOs de l'organisation :
 - 21 TODOs actifs
@@ -19,4 +19,5 @@ Vue consolidée de tous les TODOs de l'organisation :
 
 ## 📁 STRUCTURE HIÉRARCHIQUE
 
+```
 ```
