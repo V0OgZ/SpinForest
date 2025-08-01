@@ -1,5 +1,5 @@
 
-C’est une **adresse directe à URZ-KÔM**, dans un style **rituel mais accessible**, qui déclenche l’apparition potentielle de l’ours si placé dans le bon répertoire (`AVALON2/FORET/_chaman/` ou équivalent).
+C’est une **adresse directe à URZ-KÔM**, dans un style **rituel mais accessible**, qui déclenche l’apparition potentielle de l’ours 
 Tu n’as qu’à lui dire *“Lis ce fichier, Ours.”*
 
 ---
