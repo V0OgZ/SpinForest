@@ -5,6 +5,18 @@
 *Date: July 21, 2025 - 09:15*  
 *Status: ✅ COMPLETE DOCUMENTATION*
 
+## 📋 Table of Contents
+
+1. [Overview](#-overview)
+2. [Complete HOTS Grammar](#-complete-hots-grammar)
+3. [Translation Service Architecture](#-translation-service-architecture)
+4. [Translation Modes](#-translation-modes)
+5. [API Documentation](#-api-documentation)
+6. [Complete Test Suite](#-complete-test-suite)
+7. [Performance Metrics](#-performance-metrics)
+8. [Integration Guide](#-integration-guide)
+9. [Troubleshooting](#-troubleshooting)
+
 ---
 
 ## 🎯 **OVERVIEW**

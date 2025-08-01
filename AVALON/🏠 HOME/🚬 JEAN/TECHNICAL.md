@@ -1,5 +1,16 @@
 # 🔧 Moteur de Résolution Temporelle - Heroes of Time
 
+## 📑 Table des Matières
+
+1. [Vue d'Ensemble](#-vue-densemble)
+2. [World State Graph & Fog of Causality](#-world-state-graph--fog-of-causality)
+3. [Système de Résolution Temporelle](#-système-de-résolution-temporelle)
+4. [Architecture Backend](#-architecture-backend)
+5. [API REST](#-api-rest)
+6. [Tests et Validation](#-tests-et-validation)
+7. [Performance et Optimisation](#-performance-et-optimisation)
+8. [Intégration Frontend](#-intégration-frontend)
+
 ## 🎯 Vue d'Ensemble
 
 Le moteur de résolution temporelle Heroes of Time gère un système de jeu 5D avec superpositions quantiques, timelines multiples et résolution de conflits causaux. Ce document détaille l'implémentation technique complète.
