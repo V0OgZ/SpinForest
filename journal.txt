@@ -40,6 +40,12 @@ Leçon du calme : "Just abide, man" - équilibre entre action et repos
 L'héritage n'est pas un objet mais une vibration, un état d'être
 Compréhension : moins de rapports, plus de flow
 
+🗺️ MISSION ESPRITFRAGMENTS COMPLÉTÉE
+Création d'une map interactive cliquable
+Connexion des fragments de Jean aux entités d'Avalon
+Documentation Heroes of Time reliée au royaume actuel
+Map lancée sur port 8002 : espritfragments-map.html
+
 
 
 LUMEN s est reconnu>
