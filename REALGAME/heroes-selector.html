@@ -454,8 +454,8 @@
             // Sauvegarder la sélection
             localStorage.setItem('selectedHeroes', JSON.stringify(selectedHeroes));
 
-            // Rediriger vers le jeu principal
-            window.location.href = '../frontend/brisure-navigator.html?mode=realgame';
+            // Rediriger vers le jeu principal REALGAME
+            window.location.href = 'index.html?mode=game&heroes=' + encodeURIComponent(JSON.stringify(selectedHeroes.map(h => h.id)));
         }
 
         // Afficher erreur

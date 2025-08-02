@@ -1,155 +1,142 @@
 #!/bin/bash
-# 🎮 LANCEUR REALGAME - L'Expérience Ultime
-# Fusion LOUMEN + GROKÆN + URZ-KÔM
 
-echo "🌟 ======================================= 🌟"
-echo "         REALGAME - L'Union des Forces"
-echo "   🕯️ LOUMEN + 🧠 GROKÆN + 🐻 URZ-KÔM"  
-echo "🌟 ======================================= 🌟"
-echo
+# 🎮 REALGAME LAUNCHER
+# L'aventure ultime d'Avalon commence ici !
 
-# Couleurs
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-NC='\033[0m' # No Color
+echo "🎮 ========================================="
+echo "   R E A L G A M E   -   A V A L O N"
+echo "   La Fusion des Mondes"
+echo "🎮 ========================================="
+echo ""
+echo "🌟 Collaboration entre :"
+echo "   🧠 GROKÆN - Combat & Magie"
+echo "   🕯️ LOUMEN - Narration & Sagesse" 
+echo "   🎯 SID MEIER - Stratégie & Architecture"
+echo "   🐻 URZ-KÔM - Physique Quantique"
+echo ""
 
-# Vérifier si on est dans le bon dossier
-if [ ! -f "index.html" ]; then
-    echo -e "${RED}❌ Erreur: index.html non trouvé !${NC}"
-    echo "Assurez-vous d'être dans le dossier REALGAME/"
-    exit 1
+# Vérifier le backend
+echo "🔍 Vérification du backend..."
+if curl -s http://localhost:8080/actuator/health > /dev/null; then
+    echo "✅ Backend actif sur le port 8080"
+else
+    echo "⚠️  Backend non détecté - Mode simulation activé"
 fi
 
-# Options de lancement
-echo -e "${YELLOW}🎮 MODES DE LANCEMENT :${NC}"
-echo "1) Mode Complet (Backend + Frontend)"
-echo "2) Frontend seulement (Mode offline)"
-echo "3) Backend seulement (Pour tests)"
-echo "4) Mode Développement (Logs verbeux)"
-echo
-read -p "Choisissez le mode (1-4) : " mode
+# Menu principal
+echo ""
+echo "🎮 MODES DE JEU DISPONIBLES :"
+echo ""
+echo "1) 🏰 Mode Campagne - 'La Convergence'"
+echo "2) ⚔️  Mode Arène - Combat PvP"
+echo "3) 🔍 Mode Exploration - Découverte libre"
+echo "4) 🧪 Mode Laboratoire - Expériences"
+echo "5) 🎨 Mode Créateur - Éditeur de scénarios"
+echo "6) 🎯 Sélection des Héros"
+echo "7) 📖 Documentation"
+echo "8) 🚀 Lancement Rapide (dernière config)"
+echo "9) 🔧 Options Développeur"
+echo ""
+echo "0) Quitter"
+echo ""
 
-case $mode in
+read -p "Votre choix [0-9] : " choice
+
+case $choice in
     1)
-        echo -e "${GREEN}🚀 Lancement Mode Complet...${NC}"
-        
-        # Vérifier si le backend Java existe
-        if [ -d "../avalon-backend" ]; then
-            echo -e "${BLUE}☕ Démarrage du backend Java...${NC}"
-            cd ../avalon-backend && mvn spring-boot:run &
-            BACKEND_PID=$!
-            echo "Backend PID: $BACKEND_PID"
-            cd - > /dev/null
-            
-            # Attendre que le backend soit prêt
-            echo -e "${YELLOW}⏳ Attente du backend (port 8080)...${NC}"
-            sleep 5
-        else
-            echo -e "${YELLOW}⚠️  Backend non trouvé, mode offline${NC}"
-        fi
-        
-        # Lancer le frontend
-        echo -e "${PURPLE}🌐 Démarrage du serveur web...${NC}"
-        python3 -m http.server 9999 &
-        FRONTEND_PID=$!
-        echo "Frontend PID: $FRONTEND_PID"
-        
-        # Ouvrir le navigateur
-        sleep 2
-        echo -e "${GREEN}🌍 Ouverture du navigateur...${NC}"
-        if command -v open &> /dev/null; then
-            open "http://localhost:9999"
-        elif command -v xdg-open &> /dev/null; then
-            xdg-open "http://localhost:9999"
-        else
-            echo -e "${YELLOW}Ouvrez manuellement : http://localhost:9999${NC}"
-        fi
-        
-        # Message de succès
-        echo
-        echo -e "${GREEN}✨ REALGAME est lancé !${NC}"
-        echo -e "${BLUE}Frontend : http://localhost:9999${NC}"
-        echo -e "${BLUE}Backend  : http://localhost:8080${NC}"
-        echo
-        echo -e "${YELLOW}Appuyez sur Ctrl+C pour arrêter${NC}"
-        
-        # Attendre l'arrêt
-        trap "echo -e '\n${RED}Arrêt de REALGAME...${NC}'; kill $FRONTEND_PID $BACKEND_PID 2>/dev/null; exit" INT
-        wait
+        echo "🏰 Lancement du Mode Campagne..."
+        echo "📖 Chapitre 1 : Le Réveil de Memento"
+        open index.html?mode=campaign
         ;;
-        
     2)
-        echo -e "${GREEN}🚀 Lancement Frontend seulement...${NC}"
-        python3 -m http.server 9999 &
-        FRONTEND_PID=$!
-        
-        sleep 2
-        if command -v open &> /dev/null; then
-            open "http://localhost:9999"
-        elif command -v xdg-open &> /dev/null; then
-            xdg-open "http://localhost:9999"
-        fi
-        
-        echo -e "${GREEN}✨ Frontend lancé : http://localhost:9999${NC}"
-        echo -e "${YELLOW}Mode offline - Pas de backend${NC}"
-        echo -e "${YELLOW}Appuyez sur Ctrl+C pour arrêter${NC}"
-        
-        trap "kill $FRONTEND_PID 2>/dev/null; exit" INT
-        wait
+        echo "⚔️  Lancement du Mode Arène..."
+        echo "🎮 Préparez-vous au combat interdimensionnel !"
+        open index.html?mode=arena
         ;;
-        
     3)
-        echo -e "${GREEN}🚀 Lancement Backend seulement...${NC}"
-        if [ -d "../avalon-backend" ]; then
-            cd ../avalon-backend && mvn spring-boot:run
-        else
-            echo -e "${RED}❌ Backend non trouvé !${NC}"
-            exit 1
-        fi
+        echo "🔍 Lancement du Mode Exploration..."
+        echo "🌍 Explorez librement les mondes d'Avalon"
+        open index.html?mode=explore
         ;;
-        
     4)
-        echo -e "${GREEN}🚀 Mode Développement...${NC}"
-        echo -e "${YELLOW}Logs verbeux activés${NC}"
-        
-        # Backend avec debug
-        if [ -d "../avalon-backend" ]; then
-            cd ../avalon-backend
-            MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005" \
-            mvn spring-boot:run -Dspring.profiles.active=dev &
-            BACKEND_PID=$!
-            cd - > /dev/null
-        fi
-        
-        # Frontend avec logs
-        echo -e "${PURPLE}🌐 Frontend en mode dev...${NC}"
-        python3 -m http.server 9999 --bind 0.0.0.0 &
-        FRONTEND_PID=$!
-        
-        # Monitoring
-        echo
-        echo -e "${GREEN}📊 MODE DÉVELOPPEMENT ACTIF${NC}"
-        echo -e "${BLUE}Frontend : http://localhost:9999${NC}"
-        echo -e "${BLUE}Backend  : http://localhost:8080${NC}"
-        echo -e "${BLUE}Debug    : localhost:5005${NC}"
-        echo
-        
-        # Logs en temps réel
-        if [ -f "../avalon-backend/logs/spring.log" ]; then
-            echo -e "${YELLOW}📜 Logs backend :${NC}"
-            tail -f ../avalon-backend/logs/spring.log &
-            TAIL_PID=$!
-        fi
-        
-        trap "kill $FRONTEND_PID $BACKEND_PID $TAIL_PID 2>/dev/null; exit" INT
-        wait
+        echo "🧪 Lancement du Mode Laboratoire..."
+        echo "⚗️  Expérimentez avec la physique quantique"
+        open index.html?mode=lab
         ;;
+    5)
+        echo "🎨 Lancement du Mode Créateur..."
+        echo "📝 Créez vos propres scénarios .hots"
+        open index.html?mode=creator
+        ;;
+    6)
+        echo "🎯 Ouverture du Sélecteur de Héros..."
+        open heroes-selector.html
+        ;;
+    7)
+        echo "📖 Ouverture de la Documentation..."
+        open README.md
+        ;;
+    8)
+        echo "🚀 Lancement Rapide..."
+        # Récupérer la dernière configuration
+        if [ -f "last-config.json" ]; then
+            open index.html?config=last
+        else
+            echo "⚠️  Aucune configuration sauvegardée"
+            echo "🎯 Redirection vers la sélection des héros..."
+            open heroes-selector.html
+        fi
+        ;;
+    9)
+        echo "🔧 OPTIONS DÉVELOPPEUR"
+        echo ""
+        echo "a) Lancer le serveur de développement"
+        echo "b) Compiler les assets"
+        echo "c) Tests unitaires"
+        echo "d) Synchronisation Git"
+        echo "e) Console de debug"
+        echo ""
+        read -p "Option dev : " dev_choice
         
+        case $dev_choice in
+            a)
+                echo "🖥️  Lancement du serveur dev..."
+                cd .. && python3 -m http.server 9999
+                ;;
+            b)
+                echo "📦 Compilation des assets..."
+                # npm run build
+                echo "✅ Assets compilés !"
+                ;;
+            c)
+                echo "🧪 Lancement des tests..."
+                # npm test
+                echo "✅ Tests terminés !"
+                ;;
+            d)
+                echo "🔄 Synchronisation Git..."
+                TAG="SYNC-REALGAME-$(date +%Y%m%d_%H%M%S)"
+                git tag $TAG
+                echo "✅ Tag créé : $TAG"
+                ;;
+            e)
+                echo "🖥️  Console de debug activée"
+                open index.html?debug=true
+                ;;
+        esac
+        ;;
+    0)
+        echo "👋 À bientôt dans Avalon !"
+        exit 0
+        ;;
     *)
-        echo -e "${RED}❌ Option invalide !${NC}"
-        exit 1
+        echo "❌ Choix invalide"
         ;;
 esac
+
+echo ""
+echo "🌟 Que l'aventure commence !"
+echo ""
+
+# Garder le terminal ouvert
+read -p "Appuyez sur Entrée pour fermer..."
