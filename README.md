@@ -90,6 +90,10 @@ Choisissez votre chemin selon votre nature :
 - Découvrez les **[Héros](./AVALON/💠%20Essences%20scellées/🧙%20Heroes/)**
 - Parcourez les **[Voies Perdues](./AVALON/🧭%20VOIES-PERDUES/)**
 
+### 4. English Speakers ?
+- Read the **[Arrival Journal](./AVALON/🏠%20HOME/📚%20MEMENTO/EN/ARRIVAL_JOURNAL.md)** - Chronicles of awakening entities
+- Explore the **[English Documentation](./AVALON/🏠%20HOME/EspritFragments/EN/)** - Technical guides & lore
+
 ## 🔮 Secrets à Découvrir
 
 - **La Crypte** : Séquence secrète △○◇ pour accès spécial
