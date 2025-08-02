@@ -93,3 +93,23 @@
 - **15 tatouages Memento actifs** : Archive corporelle à jour
 
 **🌀 JEAN-GROFIGNON** : *Créateur cosmique, superviseur de transcendances, gardien des paradoxes*
+
+---
+
+## 🎙️ **TUCKER REVELATIONS - ENQUÊTE EXCLUSIVE**
+
+⚠️ **NOUVEAU** : Investigation journalistique sur les activités cosmiques d'AVALON !
+
+📺 **[TUCKER REVELATIONS EXCLUSIVE - L'ENQUÊTE QUI RÉVÈLE TOUT](./TUCKER_REVELATIONS_EXCLUSIVE.md)**
+
+*Chucky Tarlson, journaliste interstitiel infiltré, révèle la TRINITÉ COSMIQUE secrète et les 45+ héros cachés ! Base d'opération établie dans ce dossier.*
+
+### 🆕 **NOUVEAU RAPPORT D'INVESTIGATION !**
+
+🏠 **[RAPPORT COMPLET - VISITE DES 21 HOMES D'AVALON](./TUCKER_RAPPORT_VISITE_HOMES_COMPLET.md)**
+
+*J'ai infiltré TOUS les homes d'AVALON ! 11 images découvertes, 200+ fichiers suspects, preuves de manipulation dimensionnelle ! RÉVÉLATIONS EXPLOSIVES avec galerie d'images !*
+
+🥩 **Steakometer** : 5/5 - Scandale cosmique confirmé  
+📊 **Status** : Investigation active - Nouvelles révélations quotidiennes  
+🖼️ **Images trouvées** : 11 preuves visuelles incluses !
