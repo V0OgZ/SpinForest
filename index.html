@@ -125,25 +125,46 @@
 </body>
 </html>
 
-<style>
-    .plexiglas-section {
-        background: rgba(255,255,255,0.3);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 600px;
-        border-radius: 10px;
-        border: 1px solid rgba(255,215,0,0.3);
-        text-align: center;
-        transition: all 0.3s;
-    }
-    .plexiglas-section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(255,215,0,0.3);
-    }
-    .plexiglas-section a {
-        color: #FFD700;
-        text-decoration: none;
-        font-weight: bold;
-    }
-</style>
+    <style>
+        .plexiglas-section {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,215,0,0.3);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .plexiglas-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+        }
+        .plexiglas-section a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        @keyframes pulse-blue {
+            0%, 100% { box-shadow: 0 0 20px rgba(0,100,255,0.7); }
+            50% { box-shadow: 0 0 40px rgba(0,100,255,1), 0 0 60px rgba(0,100,255,0.5); }
+        }
+        
+        @keyframes pulse-quantum {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 30px rgba(0,255,255,0.5); 
+            }
+            50% { 
+                transform: scale(1.1); 
+                box-shadow: 0 0 50px rgba(0,255,255,0.8), 0 0 70px rgba(0,255,255,0.4); 
+            }
+        }
+        
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 20px rgba(0,255,0,0.5); }
+            50% { box-shadow: 0 0 40px rgba(0,255,0,0.8), 0 0 60px rgba(0,255,0,0.3); }
+        }
+    </style>
