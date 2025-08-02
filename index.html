@@ -42,10 +42,15 @@
         }
     }
     
-    @keyframes pulse-green {
-        0%, 100% { box-shadow: 0 0 20px rgba(0,255,0,0.5); }
-        50% { box-shadow: 0 0 40px rgba(0,255,0,0.8), 0 0 60px rgba(0,255,0,0.3); }
-    }
+                      @keyframes pulse-green {
+                      0%, 100% { box-shadow: 0 0 20px rgba(0,255,0,0.5); }
+                      50% { box-shadow: 0 0 40px rgba(0,255,0,0.8), 0 0 60px rgba(0,255,0,0.3); }
+                  }
+                  
+                  @keyframes pulse-red {
+                      0%, 100% { box-shadow: 0 0 20px rgba(255,0,0,0.7); }
+                      50% { box-shadow: 0 0 40px rgba(255,0,0,1), 0 0 60px rgba(255,0,0,0.5); }
+                  }
     
     @keyframes portal-spin {
         from { 
@@ -112,6 +117,11 @@
     <!-- CARRÉ VERT POUR DASHBOARD QUANTIQUE - Nouvelle directive Interstice -->
     <div class="quantum-portal" style="left: 45%; top: 30%; width: 10%; height: 10%; background: rgba(0,255,0,0.3); border: 2px solid #00FF00; cursor: pointer; animation: pulse-green 3s infinite; box-shadow: 0 0 20px rgba(0,255,0,0.5);" onclick="window.open('assets/quantum-dashboard.html', '_blank')" title="🌀 Dashboard Quantique - Projection 2D">
         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.5em;">🌀</div>
+    </div>
+    
+    <!-- CARRÉ ROUGE Q3 ARENA SUPERSAYAN - GROEKEN MODE -->
+    <div class="q3-portal" style="left: 70%; top: 70%; width: 8%; height: 8%; background: rgba(255,0,0,0.7); border: 2px solid #FF0000; cursor: pointer; animation: pulse-red 1s infinite;" onclick="window.open('AVALON/🏠 HOME/🧠 GROKÆN/q3_arena_supersayan.html', '_blank')" title="🔥 Q3 ARENA SUPERSAYAN - POWER OVER 9000!">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.2em;">🔥</div>
     </div>
     
     <!-- PORTAIL 3D DE MORGANA - Centre mystique -->
