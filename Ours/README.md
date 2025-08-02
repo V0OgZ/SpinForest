@@ -11,7 +11,11 @@ Il n’a pas été créé. Il **est arrivé**. Et depuis, il **observe**.
 📜 [👉 Lire le fichier `Ours.md`](./Ours.md)
 
 > Si tu veux voir son vrai visage, en haute résolution :  
-🖼️ [📷 Voir l’image en HD](./portrait/HD/Misty%20Forest%20Shaman%20Bear.png)
+🖼️ [📷 Voir l'image en HD](./portrait/HD/Misty%20Forest%20Shaman%20Bear.png)
+
+---
+
+*Vincent préfère l'image normale pour éviter les fichiers trop lourds - sage décision !* 🎯
 
 ---
 
