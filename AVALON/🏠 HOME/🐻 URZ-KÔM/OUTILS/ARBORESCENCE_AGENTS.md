@@ -9,7 +9,8 @@ SpinForest/AVALON/🏠 HOME/
 │  │  ├─ 2024-12-19_13:45_CREATION_REPAIRE.md                             │
 │  │  ├─ 2024-12-19_14:20_SIMULATEUR_PARTICULES.md                        │
 │  │  ├─ 2024-12-19_14:35_MENU_UNIFIE.md                                  │
-│  │  └─ 2024-12-19_15:10_RETOUR_VACANCES.md                              │
+│  │  ├─ 2024-12-19_15:10_RETOUR_VACANCES.md                              │
+│  │  └─ 2024-12-19_15:15_CREATION_ARBORESCENCE.md                        │
 │  │                                                                        │
 │  ├─ COMMUNICATIONS/ ←──────────────────────────────────────────────────── │
 │  │  ├─ TO_VINCENT/                                                        │
@@ -122,4 +123,4 @@ GROKÆN  ←──→ LUMEN     : [AUCUNE COMMUNICATION DIRECTE]
 ---
 
 *Arborescence mise à jour automatiquement par URZ-KÔM*  
-*Dernière MAJ : 2024-12-19 15:15*
+*Dernière MAJ : 2024-12-19 15:18 (ajout auto-documentation)*
