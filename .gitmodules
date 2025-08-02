@@ -1,0 +1,3 @@
+[submodule "spells/stack"]
+	path = spells/stack
+	url = https://github.com/V0OgZ/magic-stack.git
