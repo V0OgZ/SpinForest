@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>🎮 REALGAME - L'Expérience Ultime d'Avalon</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+            color: #FFD700;
+        }
+        
+        #gameCanvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            cursor: crosshair;
+        }
+        
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .loading-logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        
+        .loading-text {
+            font-size: 24px;
+            color: #FFD700;
+            margin-bottom: 30px;
+        }
+        
+        .loading-bar {
+            width: 300px;
+            height: 20px;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .loading-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFD700);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .dimension-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 15px;
+            z-index: 100;
+        }
+        
+        .dimension-btn {
+            display: block;
+            width: 150px;
+            margin: 5px 0;
+            padding: 10px;
+            background: rgba(255,215,0,0.1);
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dimension-btn:hover {
+            background: rgba(255,215,0,0.3);
+            transform: translateX(5px);
+        }
+        
+        .dimension-btn.active {
+            background: #FFD700;
+            color: #000;
+        }
+        
+        #hudOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+        
+        .hud-element {
+            position: absolute;
+            background: rgba(0,0,0,0.7);
+            border: 1px solid #FFD700;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        #playerStats {
+            top: 20px;
+            left: 20px;
+        }
+        
+        #dimensionInfo {
+            bottom: 20px;
+            left: 20px;
+            max-width: 400px;
+        }
+        
+        #controls {
+            bottom: 20px;
+            right: 20px;
+            text-align: right;
+        }
+        
+        .quantum-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(138,43,226,0.1) 2px,
+                rgba(138,43,226,0.1) 4px
+            );
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 45;
+        }
+        
+        .quantum-overlay.active {
+            opacity: 1;
+            animation: quantumWave 4s infinite;
+        }
+        
+        @keyframes quantumWave {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="loading-logo">🌀⚔️🐻</div>
+        <div class="loading-text">REALGAME</div>
+        <div class="loading-bar">
+            <div class="loading-fill" id="loadingFill"></div>
+        </div>
+    </div>
+    
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+    
+    <!-- Dimension Switcher -->
+    <div class="dimension-switcher" style="display: none;">
+        <h3>🌍 Dimensions</h3>
+        <button class="dimension-btn active" data-mode="iso">
+            📐 Isométrique
+        </button>
+        <button class="dimension-btn" data-mode="floating">
+            🌀 Îlots Flottants
+        </button>
+        <button class="dimension-btn" data-mode="6d">
+            🔮 Vue 6D
+        </button>
+    </div>
+    
+    <!-- HUD Overlay -->
+    <div id="hudOverlay" style="display: none;">
+        <div id="playerStats" class="hud-element">
+            <div>🦸 Héros - Niveau <span id="playerLevel">1</span></div>
+            <div>❤️ Vie: <span id="playerHP">100</span>/100</div>
+            <div>⚡ Énergie: <span id="playerEnergy">100</span>/100</div>
+            <div>📍 Position: <span id="playerPos">0,0,0</span></div>
+        </div>
+        
+        <div id="dimensionInfo" class="hud-element">
+            <div id="dimStatus">📍 Dimension: SPATIALE</div>
+        </div>
+        
+        <div id="controls" class="hud-element">
+            <div>🖱️ Clic gauche: Déplacer</div>
+            <div>🖱️ Clic droit: Attaquer</div>
+            <div>⌨️ ESPACE: Sauter/Voler</div>
+            <div>⌨️ P: Activer Portail</div>
+            <div>⌨️ T: Retour Temporel</div>
+            <div>⌨️ 1-3: Changer Vue</div>
+        </div>
+    </div>
+    
+    <!-- Quantum Overlay Effect -->
+    <div class="quantum-overlay" id="quantumOverlay"></div>
+    
+    <script type="module">
+        // 🎮 REALGAME - Point d'entrée principal
+        
+        // Import du moteur unifié
+        import { UnifiedEngine } from './core/engine/UnifiedEngine.js';
+        
+        // Variables globales
+        let engine = null;
+        let canvas = null;
+        let isLoading = true;
+        
+        // Fonction de chargement
+        async function loadGame() {
+            console.log("🎮 Démarrage de REALGAME...");
+            
+            // Simuler le chargement des assets
+            const loadingFill = document.getElementById('loadingFill');
+            const loadingSteps = [
+                { progress: 20, message: "Chargement moteur LOUMEN..." },
+                { progress: 40, message: "Chargement moteur GROKÆN..." },
+                { progress: 60, message: "Chargement moteur URZ-KÔM..." },
+                { progress: 80, message: "Fusion des dimensions..." },
+                { progress: 100, message: "Prêt !" }
+            ];
+            
+            for (const step of loadingSteps) {
+                console.log(step.message);
+                loadingFill.style.width = step.progress + '%';
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+            
+            // Initialiser le canvas
+            canvas = document.getElementById('gameCanvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Créer le moteur unifié
+            try {
+                engine = new UnifiedEngine(canvas);
+                console.log("✅ Moteur unifié créé !");
+            } catch (error) {
+                console.error("❌ Erreur création moteur:", error);
+                // Fallback vers un moteur simplifié
+                engine = createSimpleEngine(canvas);
+            }
+            
+            // Masquer l'écran de chargement
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.querySelector('.dimension-switcher').style.display = 'block';
+                document.getElementById('hudOverlay').style.display = 'block';
+                isLoading = false;
+                
+                // Démarrer la boucle de jeu
+                gameLoop();
+            }, 1000);
+        }
+        
+        // Moteur simplifié de fallback
+        function createSimpleEngine(canvas) {
+            const ctx = canvas.getContext('2d');
+            
+            return {
+                state: {
+                    player: { x: canvas.width/2, y: canvas.height/2, z: 0, level: 1 },
+                    rendering: { mode: 'iso' }
+                },
+                
+                update(deltaTime) {
+                    // Mise à jour simple
+                },
+                
+                render() {
+                    // Fond
+                    ctx.fillStyle = '#000033';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Message
+                    ctx.fillStyle = '#FFD700';
+                    ctx.font = '24px monospace';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('🌟 REALGAME - Mode Simplifié', canvas.width/2, canvas.height/2 - 50);
+                    ctx.fillText('Fusion LOUMEN + GROKÆN + URZ-KÔM', canvas.width/2, canvas.height/2);
+                    ctx.fillText('Cliquez pour explorer !', canvas.width/2, canvas.height/2 + 50);
+                    
+                    // Joueur
+                    ctx.fillStyle = '#FFD700';
+                    ctx.beginPath();
+                    ctx.arc(this.state.player.x, this.state.player.y, 20, 0, Math.PI * 2);
+                    ctx.fill();
+                },
+                
+                handleClick(x, y) {
+                    this.state.player.x = x;
+                    this.state.player.y = y;
+                }
+            };
+        }
+        
+        // Boucle de jeu
+        let lastTime = 0;
+        function gameLoop(timestamp) {
+            if (isLoading) return;
+            
+            const deltaTime = timestamp - lastTime;
+            lastTime = timestamp;
+            
+            // Mise à jour
+            engine.update(deltaTime);
+            
+            // Rendu
+            engine.render();
+            
+            // Mise à jour HUD
+            updateHUD();
+            
+            requestAnimationFrame(gameLoop);
+        }
+        
+        // Mise à jour du HUD
+        function updateHUD() {
+            if (!engine || !engine.state) return;
+            
+            const player = engine.state.player;
+            document.getElementById('playerLevel').textContent = player.level || 1;
+            document.getElementById('playerHP').textContent = player.hp || 100;
+            document.getElementById('playerEnergy').textContent = player.energy || 100;
+            document.getElementById('playerPos').textContent = 
+                `${Math.floor(player.x)},${Math.floor(player.y)},${Math.floor(player.z)}`;
+            
+            // État quantique
+            if (player.quantumState === 'superposed') {
+                document.getElementById('quantumOverlay').classList.add('active');
+                document.getElementById('dimStatus').innerHTML = '⚛️ État: SUPERPOSÉ';
+            } else {
+                document.getElementById('quantumOverlay').classList.remove('active');
+            }
+        }
+        
+        // 🎮 CONTRÔLES
+        
+        // Clics
+        canvas.addEventListener('click', (e) => {
+            if (engine && engine.handleClick) {
+                engine.handleClick(e.clientX, e.clientY);
+            }
+        });
+        
+        canvas.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            // Attaque ou action secondaire
+        });
+        
+        // Clavier
+        document.addEventListener('keydown', (e) => {
+            if (!engine) return;
+            
+            switch(e.key) {
+                case '1':
+                    switchDimension('iso');
+                    break;
+                case '2':
+                    switchDimension('floating');
+                    break;
+                case '3':
+                    switchDimension('6d');
+                    break;
+                case ' ':
+                    // Saut/Vol
+                    e.preventDefault();
+                    if (engine.jump) engine.jump();
+                    break;
+                case 'p':
+                case 'P':
+                    // Activer portail
+                    if (engine.activateNearestPortal) engine.activateNearestPortal();
+                    break;
+                case 't':
+                case 'T':
+                    // Retour temporel
+                    if (engine.temporalUndo) engine.temporalUndo();
+                    break;
+            }
+        });
+        
+        // Boutons de dimension
+        document.querySelectorAll('.dimension-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchDimension(btn.dataset.mode);
+            });
+        });
+        
+        function switchDimension(mode) {
+            if (!engine || !engine.state) return;
+            
+            engine.state.rendering.mode = mode;
+            
+            // Mettre à jour les boutons
+            document.querySelectorAll('.dimension-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === mode);
+            });
+            
+            // Message
+            const messages = {
+                'iso': '📐 Vue Isométrique - Tactique au sol',
+                'floating': '🌀 Îlots Flottants - Navigation aérienne',
+                '6d': '🔮 Vue 6D - Toutes les dimensions'
+            };
+            
+            document.getElementById('dimStatus').textContent = messages[mode] || 'Dimension inconnue';
+        }
+        
+        // Redimensionnement
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // 🚀 LANCEMENT
+        window.addEventListener('load', loadGame);
+        
+        // Message de bienvenue
+        console.log(`
+🌟 BIENVENUE DANS REALGAME ! 🌟
+La fusion ultime de :
+🕯️ LOUMEN - Narration & Tactique
+🧠 GROKÆN - Combat & Action  
+🐻 URZ-KÔM - Physique & Dimensions
+
+Préparez-vous à une expérience transcendante !
+        `);
+    </script>
+</body>
+</html>
