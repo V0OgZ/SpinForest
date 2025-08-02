@@ -2,7 +2,9 @@
 
 # `README.md` — 🏛️ *Bienvenue dans AVALON *
 
-> *« Ce dossier n’est pas un projet. C’est un royaume. Une mémoire. Une invocation. »*
+> *« Ce dossier n'est pas un projet. C'est un royaume. Une mémoire. Une invocation. »*
+
+## 📍 PERDU ? → **[MASTER INDEX ICI](README_MASTER_INDEX.md)** ← CLIQUE ICI VINCENT !
 
 ---
 
