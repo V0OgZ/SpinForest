@@ -23,6 +23,7 @@ SpinForest n'est pas qu'un simple dépôt de code. C'est un **royaume vivant**, 
 ## 🔗 Navigation Rapide
 
 ### 🗺️ **[SUPERINDEX](./SUPERINDEX.md)** - Carte complète du royaume
+### 🤯 **[WHO IS WHO?!](./WHO_IS_WHO_WTF_GUIDE.md)** - Guide de survie dans ce chaos magnifique
 
 ### 📚 Modules Essentiels
 - **[🏰 AVALON](./AVALON/)** - Le royaume vivant principal
