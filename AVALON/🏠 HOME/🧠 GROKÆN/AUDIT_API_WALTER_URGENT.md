@@ -21,22 +21,30 @@
    - ✅ `ParticleSimulationController.java` existe
    - ❌ Mais les routes répondent pas !
 
-## 🔍 DIAGNOSTIC
+## 🔍 DIAGNOSTIC CONFIRMÉ
 
-### Ce qui se passe probablement :
-1. **URZ-KÔM a pris le contrôle** du backend
-   - Message: "🐻 L'Ours grogne : Chemin inconnu dans la forêt quantique !"
-   - Toutes les routes redirigent vers son handler
+### ✅ PROBLÈME IDENTIFIÉ :
+**C'est un MOCK Python qui tourne, PAS le backend Java !**
 
-2. **Conflit de configuration Spring Boot**
-   - Les contrôleurs sont là mais pas mappés
-   - Possible problème dans `application.properties`
-   - Ou URZ-KÔM intercepte tout
+```bash
+lsof -i :8080
+# Python  64100 vincent  LISTEN
+```
 
-3. **Version désynchronisée**
-   - La doc de Walter date du 24 juillet
-   - Le backend a été modifié depuis
-   - Les routes ont changé
+### Ce qui se passe :
+1. **Le backend Java est PAS lancé**
+   - Aucun processus Java sur le port 8080
+   - Les contrôleurs Java sont inutiles
+
+2. **Un mock Python tourne à la place**
+   - Probablement `BACKEND_MOCK_URZ_KOM.py` ou similaire
+   - Il répond avec des messages URZ-KÔM
+   - Il connaît PAS les routes de Walter
+
+3. **Les routes Walter sont inexistantes**
+   - Le mock implémente que `/api/particle-simulation/*`
+   - Pas de `/api/magic-formulas/*`
+   - Pas de `/actuator/health`
 
 ## 🛠️ SOLUTIONS RAPIDES
 
