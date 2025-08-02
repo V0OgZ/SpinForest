@@ -647,6 +647,19 @@
             document.getElementById('gameMap').appendChild(newEntity);
         }
 
+        // Lancer le Panopticon 6D
+        function launchPanopticon() {
+            addDialogue("👁️ GRUT: Activation du Panopticon 6D...", 'system');
+            addDialogue("🐻 URZ-KÔM: *grognement mystique* Les 6 dimensions s'ouvrent !", 'bear');
+            
+            // Ouvrir le Panopticon dans une nouvelle fenêtre
+            window.open('panopticon-6d-grut.html', '_blank', 'width=1400,height=900');
+            
+            setTimeout(() => {
+                addDialogue("🌀 Connexion WSG établie - Vision 6D active", 'system');
+            }, 1000);
+        }
+
         // Sagesse de l'ours
         function showBearWisdom() {
             const wisdoms = [
