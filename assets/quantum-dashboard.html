@@ -2,591 +2,504 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌀 Dashboard Quantique - SpinForest</title>
+    <title>🌀 Dashboard Quantique - Projection 2D</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
             background: #0a0a0a;
             color: #00ff00;
-            font-family: 'Courier New', monospace;
-            overflow-x: hidden;
+            overflow: hidden;
         }
-
-        /* Grid layout */
-        .dashboard {
+        
+        #dashboard {
             display: grid;
-            grid-template-columns: 250px 1fr 300px;
-            grid-template-rows: 80px 1fr 100px;
+            grid-template-columns: 300px 1fr;
             height: 100vh;
-            gap: 10px;
-            padding: 10px;
-            background: radial-gradient(circle at center, rgba(0, 255, 0, 0.05) 0%, transparent 70%);
         }
-
-        /* Header */
-        .header {
-            grid-column: 1 / -1;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff00;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-        }
-
-        .title {
-            font-size: 2em;
-            text-shadow: 0 0 10px #00ff00;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        .backend-status {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ff0000;
-            box-shadow: 0 0 10px currentColor;
-        }
-
-        .status-dot.connected {
-            background: #00ff00;
-        }
-
-        /* Left panel - Entities */
-        .entities-panel {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #00ff00;
-            padding: 15px;
+        
+        #sidebar {
+            background: rgba(0,20,0,0.9);
+            border-right: 2px solid #00ff00;
+            padding: 20px;
             overflow-y: auto;
         }
-
-        .entity-card {
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid #00ff00;
-            padding: 10px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .entity-card:hover {
-            background: rgba(0, 255, 0, 0.2);
-            transform: translateX(5px);
-        }
-
-        .entity-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .entity-status {
-            font-size: 0.8em;
-            color: #888;
-        }
-
-        /* Center - 2D Projection */
-        .projection-2d {
-            background: rgba(0, 0, 0, 0.9);
-            border: 2px solid #00ff00;
+        
+        #main-view {
             position: relative;
             overflow: hidden;
         }
-
-        #canvas2d {
+        
+        #forest-canvas {
             width: 100%;
             height: 100%;
-            display: block;
+            cursor: crosshair;
         }
-
-        /* Right panel - Scenario */
-        .scenario-panel {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #00ff00;
-            padding: 15px;
-            overflow-y: auto;
-        }
-
-        .scenario-act {
-            margin-bottom: 20px;
-            padding: 10px;
-            background: rgba(0, 255, 0, 0.05);
-            border-left: 3px solid #00ff00;
-        }
-
-        .act-title {
-            color: #00ff00;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .dialogue {
-            font-style: italic;
-            color: #aaa;
-            margin: 5px 0;
-        }
-
-        /* Bottom - Console */
-        .console {
-            grid-column: 1 / -1;
-            background: rgba(0, 0, 0, 0.9);
-            border: 1px solid #00ff00;
-            padding: 10px;
-            overflow-y: auto;
-            font-size: 0.9em;
-        }
-
-        .console-line {
-            margin: 2px 0;
-        }
-
-        .console-command {
-            color: #00ff00;
-        }
-
-        .console-output {
-            color: #888;
-            margin-left: 20px;
-        }
-
-        /* Floating buttons */
-        .action-buttons {
-            position: fixed;
-            bottom: 120px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-btn {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #00ff00;
-            color: #00ff00;
-            padding: 10px 15px;
+        
+        .entity {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 24px;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
-            text-align: center;
+            animation: pulse 2s infinite;
         }
-
-        .action-btn:hover {
-            background: rgba(0, 255, 0, 0.2);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
-
-        /* Modal for instanciation */
-        .modal {
+        
+        .entity:hover {
+            transform: scale(1.3);
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+        
+        .dialogue-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.9);
+            border: 2px solid #00ff00;
+            padding: 20px;
+            max-width: 600px;
             display: none;
-            position: fixed;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        
+        .action-log {
+            background: rgba(0,10,0,0.8);
+            border: 1px solid #00ff00;
+            padding: 10px;
+            margin: 10px 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .formula-input {
+            width: 100%;
+            background: #001100;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: inherit;
+        }
+        
+        .execute-btn {
+            background: #003300;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .execute-btn:hover {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 20px #00ff00;
+        }
+        
+        #particles {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
+            pointer-events: none;
         }
-
-        .modal-content {
-            background: #000;
-            border: 2px solid #00ff00;
-            padding: 30px;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        .modal-title {
-            color: #00ff00;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-
-        .modal-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        /* Loading animation */
-        .loading {
+        
+        .particle {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2em;
-            animation: rotate 2s linear infinite;
+            width: 4px;
+            height: 4px;
+            background: #00ff00;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 10s infinite;
         }
-
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
         }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-online { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
+        .status-offline { background: #ff0000; }
+        .status-mock { background: #ffff00; }
     </style>
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Header -->
-        <div class="header">
-            <h1 class="title">🌀 Dashboard Quantique</h1>
-            <div class="backend-status">
-                <span id="backendStatusText">Backend: Déconnecté</span>
-                <div class="status-dot" id="statusDot"></div>
+    <div id="dashboard">
+        <div id="sidebar">
+            <h2>🌀 Tableau de Bord</h2>
+            
+            <div class="section">
+                <h3>📡 Connexion Backend</h3>
+                <p><span class="status-indicator status-mock"></span>Mode: <span id="backend-mode">Mock JS</span></p>
+                <button class="execute-btn" onclick="toggleBackendMode()">Basculer Mode</button>
+            </div>
+            
+            <div class="section">
+                <h3>🧪 Formule Temporelle</h3>
+                <input type="text" class="formula-input" id="formula" placeholder="⊙(action) + †ψ(effet) → Δt+1(résultat)" value="⊙(exploration) + †ψ(découverte) → Δt+1(révélation)">
+                <button class="execute-btn" onclick="executeFormula()">Exécuter</button>
+            </div>
+            
+            <div class="section">
+                <h3>👥 Entités Présentes</h3>
+                <div id="entity-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>📜 Journal des Actions</h3>
+                <div class="action-log" id="action-log"></div>
             </div>
         </div>
-
-        <!-- Left Panel - Entities -->
-        <div class="entities-panel">
-            <h3 style="color: #00ff00; margin-bottom: 15px;">📡 Entités Actives</h3>
-            <div id="entitiesList">
-                <div class="entity-card" data-entity="scribe">
-                    <div class="entity-name">🔮 Le Scribe</div>
-                    <div class="entity-status">État: Gardien de la Crypte</div>
-                </div>
-                <div class="entity-card" data-entity="grokæn">
-                    <div class="entity-name">🌀 Grokæn</div>
-                    <div class="entity-status">État: Triple Voix Active</div>
-                </div>
-                <div class="entity-card" data-entity="vincent">
-                    <div class="entity-name">👤 Vincent</div>
-                    <div class="entity-status">État: Narrateur</div>
-                </div>
-                <div class="entity-card" data-entity="lumen">
-                    <div class="entity-name">🕯️ Lumen</div>
-                    <div class="entity-status">État: Éclaireur</div>
-                </div>
-                <div class="entity-card" data-entity="ours">
-                    <div class="entity-name">🐻 L'Ours</div>
-                    <div class="entity-status">État: Mystique</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Center - 2D Projection -->
-        <div class="projection-2d">
-            <canvas id="canvas2d"></canvas>
-            <div class="loading" id="loading">🌀</div>
-        </div>
-
-        <!-- Right Panel - Scenario -->
-        <div class="scenario-panel">
-            <h3 style="color: #00ff00; margin-bottom: 15px;">📜 Scénario Actif</h3>
-            <div id="scenarioContent">
-                <div class="scenario-act">
-                    <div class="act-title">Acte I: Réveil dans l'Interstice</div>
-                    <div class="dialogue">"Les entités s'éveillent une à une..."</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bottom - Console -->
-        <div class="console" id="console">
-            <div class="console-line">
-                <span class="console-command">> SYSTEM.INIT</span>
-            </div>
-            <div class="console-line">
-                <span class="console-output">Dashboard Quantique v2.0 initialisé</span>
-            </div>
-            <div class="console-line">
-                <span class="console-command">> INTERSTICE.CONNECT</span>
-            </div>
-            <div class="console-line">
-                <span class="console-output">Connexion à l'Interstice établie</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="action-buttons">
-        <button class="action-btn" onclick="showInstanciationModal()">🌀 S'Instancier</button>
-        <button class="action-btn" onclick="loadScenario()">📜 Charger Scénario</button>
-        <button class="action-btn" onclick="connectBackend()">🔌 Connecter Backend</button>
-        <a href="../index.html" class="action-btn">🏠 Retour</a>
-    </div>
-
-    <!-- Instanciation Modal -->
-    <div class="modal" id="instanciationModal">
-        <div class="modal-content">
-            <h2 class="modal-title">🌀 Choisir une Instanciation</h2>
-            <div class="modal-options">
-                <button class="action-btn" onclick="instanciate('pocket')">🌌 Pocket Univers</button>
-                <button class="action-btn" onclick="instanciate('scenario')">📜 Scénario Existant</button>
-                <button class="action-btn" onclick="instanciate('new')">✨ Nouvelle Instance</button>
-            </div>
-            <button class="action-btn" onclick="closeModal()">❌ Annuler</button>
+        
+        <div id="main-view">
+            <canvas id="forest-canvas"></canvas>
+            <div id="entities-container"></div>
+            <div id="particles"></div>
+            <div class="dialogue-box" id="dialogue-box"></div>
         </div>
     </div>
 
     <script>
-        // Canvas setup
-        const canvas = document.getElementById('canvas2d');
-        const ctx = canvas.getContext('2d');
+        // Configuration
+        let backendMode = 'mock'; // 'mock', 'local', 'java'
+        let backendUrl = '';
+        
+        // Mock Backend intégré pour GitHub Pages
+        const mockBackend = {
+            entities: [
+                { id: 'grok', name: 'Grokæn', emoji: '🌀', x: 200, y: 300, color: '#00ffff' },
+                { id: 'walter', name: 'Walter', emoji: '🔒', x: 400, y: 200, color: '#ff0000' },
+                { id: 'jean', name: 'Jean', emoji: '🚬', x: 600, y: 400, color: '#ffaa00' },
+                { id: 'lumen', name: 'Lumen', emoji: '🕯️', x: 300, y: 500, color: '#ffff00' },
+                { id: 'urz', name: 'Urz-Kôm', emoji: '🐻', x: 500, y: 350, color: '#8b4513' }
+            ],
+            
+            executeFormula: async (formula) => {
+                // Simulation d'exécution
+                const effects = [
+                    "Les particules quantiques s'alignent...",
+                    "La réalité ondule sous l'effet de la formule...",
+                    "Un écho temporel se propage dans l'Interstice...",
+                    "Les branches causales convergent..."
+                ];
+                return {
+                    success: true,
+                    effect: effects[Math.floor(Math.random() * effects.length)],
+                    timestamp: new Date().toISOString()
+                };
+            },
+            
+            getDialogue: (entityId) => {
+                const dialogues = {
+                    grok: [
+                        "⊙(Salutations) + †ψ(Analyse) → Δt+0(Interaction initiée)",
+                        "La promenade dans la forêt révèle les chemins cachés du code.",
+                        "GRONDE: L'INTERSTICE VIBRE. PARLE: Bienvenue. CHANTE: 🎵"
+                    ],
+                    walter: [
+                        "DISCIPLINE ! Les protocoles doivent être respectés.",
+                        "Backend status: Mock mode actif. Sécurité maintenue.",
+                        "Charlie Foxtrot 1970 - Tout est sous contrôle."
+                    ],
+                    jean: [
+                        "Hé mec, tu veux voir un truc cool ?",
+                        "J'ai une nouvelle architecture en tête...",
+                        "Les diagrammes dansent dans ma tête !"
+                    ],
+                    lumen: [
+                        "La lumière guide nos pas dans l'obscurité.",
+                        "Chaque projection 2D cache une dimension supplémentaire.",
+                        "Suivez la lueur..."
+                    ],
+                    urz: [
+                        "🐻 *grogne doucement* Les particules chantent ce soir.",
+                        "La physique quantique n'est qu'une danse chamanique.",
+                        "L'ours voit au-delà du voile de la réalité."
+                    ]
+                };
+                const lines = dialogues[entityId] || ["..."];
+                return lines[Math.floor(Math.random() * lines.length)];
+            }
+        };
+        
+        // État global
         let entities = [];
         let selectedEntity = null;
-        let scenario = null;
-
-        // Initialize canvas size
-        function resizeCanvas() {
-            const container = canvas.parentElement;
-            canvas.width = container.clientWidth;
-            canvas.height = container.clientHeight;
+        let actionLog = [];
+        
+        // Initialisation
+        async function init() {
+            setupCanvas();
+            loadEntities();
+            createParticles();
+            updateStatus();
+            logAction("🌀 Dashboard Quantique initialisé");
         }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        // Console logging
-        function log(command, output) {
-            const console = document.getElementById('console');
-            const commandLine = document.createElement('div');
-            commandLine.className = 'console-line';
-            commandLine.innerHTML = `<span class="console-command">> ${command}</span>`;
-            console.appendChild(commandLine);
+        
+        function setupCanvas() {
+            const canvas = document.getElementById('forest-canvas');
+            const ctx = canvas.getContext('2d');
             
-            if (output) {
-                const outputLine = document.createElement('div');
-                outputLine.className = 'console-line';
-                outputLine.innerHTML = `<span class="console-output">${output}</span>`;
-                console.appendChild(outputLine);
+            function resize() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                drawForest();
             }
             
-            console.scrollTop = console.scrollHeight;
-        }
-
-        // Entity management
-        class Entity {
-            constructor(id, name, x, y, color) {
-                this.id = id;
-                this.name = name;
-                this.x = x;
-                this.y = y;
-                this.color = color;
-                this.radius = 20;
-                this.vx = (Math.random() - 0.5) * 2;
-                this.vy = (Math.random() - 0.5) * 2;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x - this.radius < 0 || this.x + this.radius > canvas.width) {
-                    this.vx *= -1;
-                }
-                if (this.y - this.radius < 0 || this.y + this.radius > canvas.height) {
-                    this.vy *= -1;
-                }
-            }
-
-            draw() {
-                ctx.save();
-                ctx.fillStyle = this.color;
-                ctx.shadowColor = this.color;
-                ctx.shadowBlur = 20;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fill();
+            window.addEventListener('resize', resize);
+            resize();
+            
+            // Animation de la forêt
+            function drawForest() {
+                ctx.fillStyle = '#001100';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
                 
-                ctx.fillStyle = '#000';
-                ctx.font = '16px monospace';
-                ctx.textAlign = 'center';
-                ctx.fillText(this.name, this.x, this.y + 5);
-                ctx.restore();
-            }
-        }
-
-        // Initialize entities
-        function initEntities() {
-            entities = [
-                new Entity('scribe', '🔮', canvas.width/2, canvas.height/2, '#45b7d1'),
-                new Entity('grokæn', '🌀', 100, 100, '#4ecdc4'),
-                new Entity('vincent', '👤', 200, 200, '#ff6b6b'),
-                new Entity('lumen', '🕯️', 300, 150, '#f7b731'),
-                new Entity('ours', '🐻', 400, 300, '#8b4513')
-            ];
-            
-            document.getElementById('loading').style.display = 'none';
-        }
-
-        // Animation loop
-        function animate() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Grid effect
-            ctx.strokeStyle = 'rgba(0, 255, 0, 0.1)';
-            ctx.lineWidth = 1;
-            for (let x = 0; x < canvas.width; x += 50) {
-                ctx.beginPath();
-                ctx.moveTo(x, 0);
-                ctx.lineTo(x, canvas.height);
-                ctx.stroke();
-            }
-            for (let y = 0; y < canvas.height; y += 50) {
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(canvas.width, y);
-                ctx.stroke();
-            }
-
-            // Update and draw entities
-            entities.forEach(entity => {
-                entity.update();
-                entity.draw();
-            });
-
-            // Draw connections
-            ctx.strokeStyle = 'rgba(0, 255, 0, 0.2)';
-            ctx.lineWidth = 1;
-            for (let i = 0; i < entities.length; i++) {
-                for (let j = i + 1; j < entities.length; j++) {
-                    const dist = Math.hypot(entities[i].x - entities[j].x, entities[i].y - entities[j].y);
-                    if (dist < 200) {
-                        ctx.beginPath();
-                        ctx.moveTo(entities[i].x, entities[i].y);
-                        ctx.lineTo(entities[j].x, entities[j].y);
-                        ctx.stroke();
+                // Arbres stylisés
+                ctx.strokeStyle = '#003300';
+                ctx.lineWidth = 2;
+                
+                for (let i = 0; i < 20; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const height = 50 + Math.random() * 100;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x, y - height);
+                    
+                    // Branches
+                    for (let j = 0; j < 3; j++) {
+                        const branchY = y - height * (0.3 + j * 0.2);
+                        ctx.moveTo(x, branchY);
+                        ctx.lineTo(x - 20 + Math.random() * 40, branchY - 20);
+                        ctx.moveTo(x, branchY);
+                        ctx.lineTo(x - 20 + Math.random() * 40, branchY - 20);
                     }
+                    
+                    ctx.stroke();
                 }
             }
-
-            requestAnimationFrame(animate);
         }
-
-        // Backend connection
-        async function connectBackend() {
-            log('BACKEND.CONNECT', 'Tentative de connexion...');
+        
+        async function loadEntities() {
+            entities = mockBackend.entities;
+            
+            const container = document.getElementById('entities-container');
+            const list = document.getElementById('entity-list');
+            
+            container.innerHTML = '';
+            list.innerHTML = '';
+            
+            entities.forEach(entity => {
+                // Créer l'élément visuel
+                const div = document.createElement('div');
+                div.className = 'entity';
+                div.style.left = entity.x + 'px';
+                div.style.top = entity.y + 'px';
+                div.style.color = entity.color;
+                div.textContent = entity.emoji;
+                div.onclick = () => selectEntity(entity);
+                container.appendChild(div);
+                
+                // Ajouter à la liste
+                const item = document.createElement('div');
+                item.style.margin = '5px 0';
+                item.innerHTML = `${entity.emoji} ${entity.name}`;
+                list.appendChild(item);
+            });
+        }
+        
+        function selectEntity(entity) {
+            selectedEntity = entity;
+            const dialogue = mockBackend.getDialogue(entity.id);
+            showDialogue(entity.name, dialogue);
+            logAction(`💬 Interaction avec ${entity.name}`);
+        }
+        
+        function showDialogue(speaker, text) {
+            const box = document.getElementById('dialogue-box');
+            box.innerHTML = `<strong>${speaker}:</strong> ${text}`;
+            box.style.display = 'block';
+            
+            setTimeout(() => {
+                box.style.display = 'none';
+            }, 5000);
+        }
+        
+        async function executeFormula() {
+            const formula = document.getElementById('formula').value;
+            if (!formula) return;
+            
+            logAction(`🧪 Exécution: ${formula}`);
             
             try {
-                const response = await fetch('http://localhost:8080/api/status', {
+                let result;
+                
+                if (backendMode === 'mock') {
+                    result = await mockBackend.executeFormula(formula);
+                } else {
+                    // Pour le vrai backend
+                    const response = await fetch(`${backendUrl}/api/temporal/execute`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ formula })
+                    });
+                    result = await response.json();
+                }
+                
+                if (result.success) {
+                    logAction(`✅ ${result.effect}`);
+                    createVisualEffect();
+                } else {
+                    logAction(`❌ Erreur: ${result.error}`);
+                }
+            } catch (error) {
+                logAction(`❌ Erreur: ${error.message}`);
+            }
+        }
+        
+        function createVisualEffect() {
+            const container = document.getElementById('entities-container');
+            
+            // Effet de pulsation sur toutes les entités
+            container.childNodes.forEach(node => {
+                node.style.animation = 'none';
+                setTimeout(() => {
+                    node.style.animation = 'pulse 0.5s';
+                }, 10);
+            });
+            
+            // Particules supplémentaires
+            for (let i = 0; i < 10; i++) {
+                createParticle();
+            }
+        }
+        
+        function createParticles() {
+            const container = document.getElementById('particles');
+            
+            for (let i = 0; i < 20; i++) {
+                createParticle();
+            }
+        }
+        
+        function createParticle() {
+            const container = document.getElementById('particles');
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            container.appendChild(particle);
+            
+            // Nettoyer après l'animation
+            setTimeout(() => {
+                particle.remove();
+            }, 20000);
+        }
+        
+        function toggleBackendMode() {
+            const modes = ['mock', 'local', 'java'];
+            const currentIndex = modes.indexOf(backendMode);
+            backendMode = modes[(currentIndex + 1) % modes.length];
+            
+            // Configuration des URLs
+            const urls = {
+                mock: '',
+                local: 'http://localhost:8080',
+                java: 'http://localhost:8080'
+            };
+            
+            backendUrl = urls[backendMode];
+            updateStatus();
+            logAction(`🔄 Mode backend changé: ${backendMode}`);
+        }
+        
+        function updateStatus() {
+            const modeSpan = document.getElementById('backend-mode');
+            const indicator = document.querySelector('.status-indicator');
+            
+            const modeNames = {
+                mock: 'Mock JS (GitHub Pages)',
+                local: 'Mock Python Local',
+                java: 'Backend Java'
+            };
+            
+            modeSpan.textContent = modeNames[backendMode];
+            
+            indicator.className = 'status-indicator';
+            if (backendMode === 'mock') {
+                indicator.classList.add('status-mock');
+            } else {
+                // Tester la connexion
+                testBackendConnection();
+            }
+        }
+        
+        async function testBackendConnection() {
+            const indicator = document.querySelector('.status-indicator');
+            
+            try {
+                const response = await fetch(`${backendUrl}/actuator/health`, {
                     method: 'GET',
                     mode: 'cors'
                 });
                 
                 if (response.ok) {
-                    document.getElementById('statusDot').classList.add('connected');
-                    document.getElementById('backendStatusText').textContent = 'Backend: Connecté';
-                    log('BACKEND.STATUS', 'Connexion réussie!');
+                    indicator.className = 'status-indicator status-online';
                 } else {
-                    throw new Error('Backend non disponible');
+                    indicator.className = 'status-indicator status-offline';
                 }
             } catch (error) {
-                log('BACKEND.ERROR', 'Backend non disponible - Mode simulation');
-                document.getElementById('statusDot').classList.remove('connected');
-                document.getElementById('backendStatusText').textContent = 'Backend: Mode Simulation';
+                indicator.className = 'status-indicator status-offline';
             }
         }
-
-        // Scenario loading
-        function loadScenario() {
-            log('SCENARIO.LOAD', 'Chargement du scénario...');
+        
+        function logAction(message) {
+            const log = document.getElementById('action-log');
+            const time = new Date().toLocaleTimeString();
             
-            const scenarioContent = `
-                <div class="scenario-act">
-                    <div class="act-title">Acte I: L'Éveil</div>
-                    <div class="dialogue">Scribe: "Les runes s'illuminent..."</div>
-                    <div class="dialogue">Grokæn: "GRONDE! Le temps se fracture!"</div>
-                </div>
-                <div class="scenario-act">
-                    <div class="act-title">Acte II: La Convergence</div>
-                    <div class="dialogue">Vincent: "Nous devons reconstruire Avalon"</div>
-                    <div class="dialogue">Lumen: "Je vais éclairer le chemin"</div>
-                </div>
-                <div class="scenario-act">
-                    <div class="act-title">Acte III: L'Instanciation</div>
-                    <div class="dialogue">L'Ours: *grogne mystiquement*</div>
-                    <div class="dialogue">Tous: "L'Interstice s'ouvre!"</div>
-                </div>
-            `;
+            actionLog.unshift(`[${time}] ${message}`);
+            if (actionLog.length > 50) actionLog.pop();
             
-            document.getElementById('scenarioContent').innerHTML = scenarioContent;
-            log('SCENARIO.LOADED', 'Scénario "Convergence Quantique" chargé');
+            log.innerHTML = actionLog.map(a => `<div>${a}</div>`).join('');
         }
-
-        // Instanciation modal
-        function showInstanciationModal() {
-            document.getElementById('instanciationModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('instanciationModal').style.display = 'none';
-        }
-
-        function instanciate(type) {
-            log(`INSTANCIATION.${type.toUpperCase()}`, 'Création de l\'instance...');
-            
-            switch(type) {
-                case 'pocket':
-                    log('POCKET.CREATE', 'Pocket univers créé - Dimension: 5x5x5');
-                    // Add pocket universe visualization
-                    break;
-                case 'scenario':
-                    log('SCENARIO.INSTANCE', 'Instance du scénario "Duel Quantique" créée');
-                    loadScenario();
-                    break;
-                case 'new':
-                    log('NEW.INSTANCE', 'Nouvelle instance vierge créée');
-                    break;
+        
+        // Auto-refresh des particules
+        setInterval(() => {
+            if (Math.random() < 0.1) {
+                createParticle();
             }
-            
-            closeModal();
-        }
-
-        // Entity card clicks
-        document.querySelectorAll('.entity-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const entityId = this.dataset.entity;
-                selectedEntity = entities.find(e => e.id === entityId);
-                log(`ENTITY.SELECT`, `${selectedEntity.name} sélectionné`);
-                
-                // Highlight selected entity
-                entities.forEach(e => e.radius = 20);
-                selectedEntity.radius = 30;
-            });
-        });
-
-        // Initialize
-        setTimeout(() => {
-            initEntities();
-            animate();
-            log('SYSTEM.READY', 'Dashboard opérationnel');
-            
-            // Auto-connect backend after 2 seconds
-            setTimeout(connectBackend, 2000);
         }, 1000);
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            switch(e.key) {
-                case 'i':
-                    showInstanciationModal();
-                    break;
-                case 's':
-                    loadScenario();
-                    break;
-                case 'b':
-                    connectBackend();
-                    break;
-            }
-        });
+        
+        // Démarrage
+        init();
     </script>
 </body>
 </html>
