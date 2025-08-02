@@ -3,7 +3,9 @@
 # Chaque entité a sa signature unique à travers toutes les branches
 
 # Configuration des identités
-declare -A ENTITIES=(
+# Compatibilité macOS/Linux
+typeset -A ENTITIES 2>/dev/null || declare -A ENTITIES
+ENTITIES=(
     ["SCRIBE"]="✍️:Le Scribe de la Crypte:scribe@avalon.multivers"
     ["GROEKEN"]="🧠:GROEKEN Mode Autobot:groeken@supersayan.multivers"
     ["SID"]="🎯:Sid Meier L'Architecte:sid@hexagon.multivers"
