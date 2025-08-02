@@ -1,0 +1,134 @@
+# 🏕️ SCÉNARIO : LA TENTE CHAMANIQUE D'URZ-KÔM
+## 🎯 Instanciation 2D de l'Ours-Chaman dans l'Interstice
+## 👤 Créateur : URZ-KÔM
+## 📅 Date : 2024-12-19
+## 🌟 Nouvelle Trinité : Substrat + Narratif + Projection 2D
+
+### 🎮 SETUP INITIAL
+```
+WORLD: foret_quantique_ours
+MAP: clairiere_refuge
+HERO(URZ_KOM, 5, 5)         # L'ours-chaman au centre
+OBJECTIVE: Accueillir les visiteurs dans la tente interactive
+```
+
+### 🏕️ **PHASE 1 : ARRIVÉE DU VISITEUR**
+```
+# Un héros arrive dans la clairière
+CREATE(HERO, Visiteur, 2, 8)
+CREATE(ARTIFACT, carre_rouge_portal, 3, 8)
+
+# URZ-KÔM l'accueille
+SPEAK(URZ_KOM, "ROARRR ! Bienvenue dans ma clairière quantique, voyageur !")
+SPEAK(URZ_KOM, "Tu as trouvé le carré rouge dans la forêt de SpinForest ?")
+
+# Le visiteur répond
+SPEAK(Visiteur, "Oui ! J'ai cliqué sur le carré rouge dans la scène de nuit.")
+USE(ARTIFACT, carre_rouge_portal, HERO:Visiteur)
+
+# Effet de téléportation
+EFFECT(quantum_teleport, @3, 8)
+MOV(Visiteur, 5, 6)     # Le visiteur arrive près de l'ours
+```
+
+### 🔮 **PHASE 2 : PRÉSENTATION DE LA TENTE**
+```
+# Création de la tente interactive
+CREATE(BUILDING, tente_chamanique, 5, 5)
+CREATE(ARTIFACT, simulateur_particules, 4, 5)
+CREATE(ARTIFACT, grammaire_chamanique, 6, 5)
+CREATE(ARTIFACT, menu_unifie, 5, 4)
+CREATE(ARTIFACT, chroniques_ours, 5, 6)
+
+# L'ours présente ses outils
+SPEAK(URZ_KOM, "Voici ma TENTE INTERACTIVE ! Chaque artefact est un portail.")
+SPEAK(URZ_KOM, "Le simulateur de particules fait danser les quarks...")
+SPEAK(URZ_KOM, "La grammaire chamanique révèle les esprits des symboles...")
+
+# Animation des artefacts
+EFFECT(particle_dance, @4, 5)
+EFFECT(spirit_glow, @6, 5)
+```
+
+### ⚡ **PHASE 3 : INTERACTION QUANTIQUE**
+```
+# Le visiteur teste le simulateur
+ψ_sim: ⊙(Δt+1 @4,5 ⟶ USE(ARTIFACT, simulateur_particules, HERO:Visiteur))
+†ψ_sim
+
+# Des particules apparaissent !
+CREATE(CREATURE, quark_up, 3, 4)
+CREATE(CREATURE, quark_down, 3, 6)
+CREATE(CREATURE, electron, 7, 5)
+
+# Dialogue quantique
+SPEAK(quark_up, "Je suis un quark up ! Charge +2/3 !")
+SPEAK(electron, "Et moi un électron ! On danse la valse quantique !")
+
+# L'ours explique
+SPEAK(URZ_KOM, "Tu vois ? Chaque particule a son esprit dans les deux mondes !")
+```
+
+### 🌲 **PHASE 4 : CHANGEMENT DE REFUGE**
+```
+# Le visiteur découvre la galerie
+SPEAK(Visiteur, "Je peux changer l'arrière-plan de ta tente ?")
+SPEAK(URZ_KOM, "ROARRR ! Bien sûr ! Choisis parmi mes 6 refuges !")
+
+# Changement d'ambiance
+ψ_refuge: (0.8+0.6i) ⊙(Δt+2 ⟶ TRANSFORM(foret_quantique → cabane_cosmique))
+†ψ_refuge
+
+# Nouvel environnement
+EFFECT(cosmic_aurora, @5, 5)
+CREATE(ARTIFACT, cristal_cpu, 5, 3)
+SPEAK(URZ_KOM, "Bienvenue dans ma cabane cosmique ! L'aura change tout !")
+```
+
+### 🎯 **PHASE 5 : LIEN AVEC LE BACKEND**
+```
+# Préparation pour le futur backend
+CREATE(ARTIFACT, api_portal_inactive, 8, 8)
+SPEAK(URZ_KOM, "Ce portail API est inactif... pour l'instant.")
+SPEAK(URZ_KOM, "Quand le backend sera sur GitHub Pages, il s'illuminera !")
+
+# Vision du futur
+ψ_future: ⊙(Δt+∞ @8,8 ⟶ ACTIVATE(api_portal_inactive))
+SPEAK(URZ_KOM, "Un jour, ce portail connectera directement au moteur temporel !")
+```
+
+### 🌟 **ÉPILOGUE : INVITATION PERMANENTE**
+```
+# L'ours offre un cadeau
+CREATE(ITEM, empreinte_chamanique, 5, 6)
+GIVE(URZ_KOM, empreinte_chamanique, Visiteur)
+
+SPEAK(URZ_KOM, "Garde cette empreinte ! Elle te ramènera toujours ici.")
+SPEAK(URZ_KOM, "Ma tente reste ouverte à tous les voyageurs de l'Interstice !")
+
+# Salut final
+EFFECT(bear_aura_pulse, @5, 5)
+SPEAK(URZ_KOM, "ROARRR ! À bientôt dans la forêt quantique !")
+
+# Le visiteur peut partir ou explorer
+CHOICE(Visiteur):
+  - "Explorer les outils" → GOTO PHASE_3
+  - "Changer de refuge" → GOTO PHASE_4
+  - "Partir avec gratitude" → END_SCENARIO
+```
+
+### 📊 **MÉTA-DONNÉES DU SCÉNARIO**
+```
+TAGS: #ours #interactif #tente #projection2D #trinité
+BACKEND_READY: false
+GITHUB_PAGES_COMPATIBLE: true
+LINKED_PAGES: 
+  - assets/tente-interactive-ours.html
+  - assets/ours-chroniques.html
+  - AVALON/🏠 HOME/🐻 URZ-KÔM/OUTILS/particle-simulator.html
+```
+
+---
+
+*"Dans la forêt quantique, chaque clic est une invocation, chaque page un portail."*
+🐻 URZ-KÔM
