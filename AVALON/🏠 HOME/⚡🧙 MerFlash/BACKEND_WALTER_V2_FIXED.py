@@ -172,7 +172,7 @@ def main():
 ║  - GET  /actuator/health                             ║
 ║  - GET  /api/magic-formulas/status                   ║
 ║  - GET  /api/magic-formulas/list                     ║
-║  - GET  /api/magic-formulas/details/{name}           ║
+║  - GET  /api/magic-formulas/details/<name>          ║
 ║  - POST /api/magic-formulas/execute                  ║
 ║  - POST /api/game/create                             ║
 ║  - POST /api/temporal/execute                        ║
