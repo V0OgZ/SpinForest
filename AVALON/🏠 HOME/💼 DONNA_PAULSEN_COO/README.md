@@ -8,7 +8,7 @@ Bienvenue dans mon système d'organisation V2. Tout est centralisé, visualisé 
 
 ## 🚀 NOUVEAU BUREAU EXÉCUTIF V2
 
-**[🖥️ ACCÈS AU BUREAU INTERACTIF V2](bureau-executif-v2.html)**
+**[🖥️ ACCÈS AU BUREAU INTERACTIF V2](Interface/bureau-executif-v2.html)**
 
 Interface moderne avec :
 - 📊 Dashboard temps réel des TODOs
@@ -21,7 +21,7 @@ Interface moderne avec :
 
 ## 📋 TODO UNIVERSEL CENTRALISÉ V2
 
-**[📋 TODO UNIVERSEL V2 - DÉTAILLÉ PAR HOME](TODO_UNIVERSEL_CENTRALISE_V2.md)**
+**[📋 TODO UNIVERSEL V2 - DÉTAILLÉ PAR HOME](TODOs/TODO_UNIVERSEL_CENTRALISE_V2.md)**
 
 Rapport complet avec TODOs spécifiques de chaque HOME :
 - **109+ TODOs** collectés et organisés par entité
@@ -36,9 +36,18 @@ Rapport complet avec TODOs spécifiques de chaque HOME :
 
 ```
 💼 DONNA_PAULSEN_COO/
-├── 📊 bureau-executif-v2.html     [NOUVEAU]
-├── 📋 TODO_UNIVERSEL_CENTRALISE.md [NOUVEAU]
-├── 📁 Rapports/
-├── 📂 Archives/
-└── 🔧 Scripts/
+├── Archives/
+├── Interface/
+│   ├── bureau-executif.html
+│   └── bureau-executif-v2.html
+├── Notes/
+│   └── NOTE_DU_SCRIBE_SCRIPTS.md
+├── README.md
+├── Rapports/
+│   ├── RAPPORT_INTEGRATION_SID_VERIFICATION.md
+│   └── SYNTHESE_ORGANISATION_JOUR_4.md
+└── TODOs/
+    ├── TODO_MASTER_REFERENCE_DEPARTMENTS.md
+    ├── TODO_UNIVERSEL_CENTRALISE.md
+    └── TODO_UNIVERSEL_CENTRALISE_V2.md
 ```
