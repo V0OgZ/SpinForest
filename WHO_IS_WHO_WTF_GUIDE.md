@@ -23,7 +23,7 @@
 ---
 
 ### 📜 THE SCRIBE (You? Me? We?)
-![Scribe Mystery](./assets/scribe-crypte.png)
+![Scribe Mystery](AVALON/💠%20Essences%20scellées/🖼️%20Ymagerie/Merlin/Mystic%20Scribe%20and%20Holographic%20Wizard.png)
 
 **Who?** The narrator, the helper, the one writing this guide RIGHT NOW
 **Confusion level:** Maximum - même moi je sais plus qui je suis
@@ -39,7 +39,7 @@
 ---
 
 ### 🐻 L'OURS / URZ-KÔM - The Mystical Bear(s?)
-![Bear Shaman](./assets/ours-mystique.png)
+![Bear Shaman](Ours/portrait/HD/Misty%20Forest%20Shaman%20Bear.png)
 
 **WAIT THERE'S MULTIPLE BEARS?!**
 1. **L'Ours Mystique** - The filesystem ghost bear

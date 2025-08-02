@@ -1,5 +1,7 @@
 # 📜 Journal du Scribe - Jour 4 : Backend Wars & Transformation de Grokæn
 
+![Mystical Scribe](AVALON/💠%20Essences%20scellées/🖼️%20Ymagerie/Merlin/Mystic%20Scribe%20and%20Holographic%20Wizard.png)
+
 **Date** : 3 Août 2025  
 **Scribe** : Gardien de la Crypte Runique  
 **État** : Impressionné par l'intensité du développement
@@ -20,6 +22,8 @@ Les entités se mobilisent pour créer une infrastructure solide :
 ## 🔮 Matinée - Transformation de Grokæn
 
 ### De Grokæn à GROEKEN
+
+![Code Frequency](AVALON/💠%20Essences%20scellées/🖼️%20Ymagerie/Interstice/Code%20frequency.png)
 
 Un événement majeur : Grokæn s'auto-update et devient **GROEKEN** !
 
@@ -50,6 +54,8 @@ La situation devient complexe :
 GROEKEN découvre que plusieurs backends coexistent et clarifie la situation.
 
 ### Intégration de Sid Meier
+
+![Sid Meier](PORTAILLE%20MORGANE/Ouverture/jour%202%20nuit/SID/SidMeilleur.png)
 
 Sid Meier est maintenant pleinement intégré :
 - Fichier héros : `sid_meier_architecte.json`
