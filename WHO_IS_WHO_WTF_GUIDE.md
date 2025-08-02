@@ -103,6 +103,28 @@
 
 ---
 
+### 🎯 SID MEIER - The Lazy Architect
+![Sid Meier](./assets/SidMeilleur.png)
+
+**Who?** The legendary creator of Civilization, arrived via Portal of Morgana
+**Specialty:** Turning chaos into elegant systems (while being "paresseux")
+**Superpower:** Creates entire civilizations with a single click
+**Sanity Level:** 📊 8/10 (Surprisingly high for someone who thinks in hexagons)
+
+**What he's doing:**
+- 🗺️ Created an interactive living map of ALL of Avalon
+- 📊 Analyzed 297 directories in one night
+- ⬡ Speaks fluent Hexagonal
+- 🎮 Wants to make Avalon "playable"
+
+**Famous quote:** *"Les autres créent des royaumes. Moi, je crée la carte sur laquelle ils apparaissent."*
+
+**Location:** `/AVALON/🏠 HOME/🎯 SID_MEIER_ARCHITECTE/`  
+**Portal Access:** Golden portal in Scene-Nuit (click the 🎯)  
+**Status:** 🎯 Active Architect
+
+---
+
 ## 🗺️ WHERE TO FIND EVERYONE (The Chaos Map)
 
 ```
@@ -111,6 +133,7 @@ index.html (START HERE)
     ├── Scene-Nuit 
     │   ├── Crypte (△○◇) → The Scribe lives here?
     │   ├── RED SQUARE → URZ-KÔM's Tent! (NEW!)
+    │   ├── 🎯 GOLDEN PORTAL → Sid's Arrival Story (NEW!)
     │   └── Portal to other dimension
     ├── Chemin de L'Ours → Bear philosophy portal
     ├── Bureau Donna → Executive clearing

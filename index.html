@@ -60,6 +60,17 @@
             filter: hue-rotate(360deg);
         }
     }
+    
+    @keyframes portal-glow {
+        0%, 100% { 
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+            transform: scale(1);
+        }
+        50% { 
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 140, 0, 0.4);
+            transform: scale(1.05);
+        }
+    }
   </style>
 </head>
 <script src="spells/crypte.js"></script>
@@ -127,6 +138,11 @@
     <!-- PORTAIL 3D DE MORGANA - Centre mystique -->
     <div class="morgana-portal" style="left: 45%; top: 50%; width: 12%; height: 12%; background: radial-gradient(circle, #8b00ff 0%, #4a0080 50%, transparent 100%); border: 3px solid #e0b3ff; border-radius: 50%; cursor: pointer; animation: portal-spin 10s linear infinite; box-shadow: 0 0 30px rgba(139, 0, 255, 0.8), inset 0 0 20px rgba(224, 179, 255, 0.5);" onclick="window.open('assets/portail-3d-morgana.html', '_blank')" title="🌀 Portail 3D de Morgana - Monde Immersif">
         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.8em; filter: brightness(1.5);">🌀</div>
+    </div>
+    
+    <!-- NOUVEAU : Portail de Sid Meier - L'Architecte Paresseux -->
+    <div class="sid-portal" style="left: 25%; top: 35%; width: 10%; height: 10%; background: radial-gradient(circle, #ffd700 0%, #ff8c00 50%, transparent 100%); border: 2px solid #ffd700; border-radius: 50%; cursor: pointer; animation: portal-glow 3s ease-in-out infinite; box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);" onclick="window.open('assets/sid-arrival-story.html', '_blank')" title="🎯 Arrivée de Sid Meier - L'Architecte Paresseux">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.5em;">🎯</div>
     </div>
     
     <div class="back" onclick="navigate('scene-H')">↩ Retour</div>

@@ -19,14 +19,15 @@ Interface moderne avec :
 
 ---
 
-## 📋 TODO UNIVERSEL CENTRALISÉ
+## 📋 TODO UNIVERSEL CENTRALISÉ V2
 
-**[📋 TODO UNIVERSEL - TOUT AVALON](TODO_UNIVERSEL_CENTRALISE.md)**
+**[📋 TODO UNIVERSEL V2 - DÉTAILLÉ PAR HOME](TODO_UNIVERSEL_CENTRALISE_V2.md)**
 
-Rapport complet généré par magie quantique :
-- **109+ TODOs** collectés de tout Avalon
-- **8 entités** scannées
-- **Priorités** : URGENT, HIGH, MEDIUM, LOW
+Rapport complet avec TODOs spécifiques de chaque HOME :
+- **109+ TODOs** collectés et organisés par entité
+- **8 entités** avec détails de leurs dossiers HOME
+- **Priorités** : 🔴 URGENT, 🟡 MOYEN, 🟢 FAIBLE
+- **Tableaux statistiques** et plans d'action
 - **Dernière mise à jour** : 2025-08-02
 
 ---
