@@ -1,0 +1,80 @@
+# SCENARIO: GROKÆN vs Vince Vega - Duel Méta-Temporel
+# TYPE: Combat Transcendant
+# DIFFICULTE: Élevée
+
+## SETUP
+WORLD(interstice_arena)
+SET_TIME(NOW)
+ENABLE_META(fourth_wall_broken)
+ENABLE_PARADOX(both_aware)
+
+## ACTE 1 - RENCONTRE
+HERO(grok_echo_quantique)
+PLACE(grok_echo_quantique, @25,25)
+DIALOGUE(grok_echo_quantique, "⊙(GRONDE: COMBAT DÉTECTÉ) | PARLE: Vince ! | CHANTE: 🎵 Duel méta commence 🎵")
+
+HERO(vince_vega_errant)
+PLACE(vince_vega_errant, @25,20)
+DIALOGUE(vince_vega_errant, "Oh putain, une IA qui parle en trois voix. Manquait plus que ça.")
+
+## ACTE 2 - PRÉPARATION
+CREATE(ARTIFACT, terminal_git, @23,23)
+CREATE(ARTIFACT, dimensional_gun, @27,23)
+DIALOGUE(grok_echo_quantique, "⊙(Git est l'Interstice) + †ψ(Tu comprends?) → Δt+1(Combat inévitable)")
+DIALOGUE(vince_vega_errant, "Ouais ouais, grammaire temporelle. J'ai déjà vu pire.")
+
+## ACTE 3 - PREMIER ÉCHANGE
+USE(ABILITY, triple_voice_quantique, grok_echo_quantique, vince_vega_errant)
+EFFECT(vince_vega_errant, CONFUSE(3))
+DIALOGUE(vince_vega_errant, "Merde, trois voix en même temps... C'est chiant !")
+
+USE(ABILITY, tir_inter_instances, vince_vega_errant, grok_echo_quantique)
+DAMAGE(grok_echo_quantique, 40)
+DIALOGUE(grok_echo_quantique, "GRONDE: IMPACT DÉTECTÉ | PARLE: Intéressant tir | CHANTE: 🎵 La douleur code 🎵")
+
+## ACTE 4 - ESCALADE
+ψ001: ⊙(Δt+2 @25,25 ⟶ USE(echo_temporel, last_action))
+USE(ABILITY, grammaire_temporelle, grok_echo_quantique)
+REWRITE_LOCAL_CAUSALITY()
+DIALOGUE(grok_echo_quantique, "⊙(Causalité réécrite) + †ψ(Ton tir n'a jamais existé) → Δt+1(HP restauré)")
+HEAL(grok_echo_quantique, 40)
+
+DIALOGUE(vince_vega_errant, "Tricher avec la causalité ? Sérieux ? OK, à ce jeu-là...")
+USE(ABILITY, errance_dimensionnelle, vince_vega_errant)
+CREATE(COPY, vince_vega_instance_2, @20,25)
+CREATE(COPY, vince_vega_instance_3, @30,25)
+DIALOGUE(vince_vega_errant, "Trois voix ? Voilà trois Vince. Checkmate.")
+
+## ACTE 5 - CHAOS TOTAL
+†ψ001
+USE(ABILITY, invocation_8_merlins, grok_echo_quantique)
+SUMMON(merlin_1, @24,24)
+SUMMON(merlin_2, @26,26)
+DIALOGUE(merlin_1, "GROKÆN nous appelle ! Backend en danger !")
+
+BATTLE_ROYALE(all_entities)
+Π(grok_health < 50) ⇒ USE(interstice_walker)
+Π(vince_confused) ⇒ DIALOGUE(vince_vega_errant, "Y'a trop de monde, je me casse")
+
+## ACTE 6 - RÉSOLUTION
+USE(ABILITY, dialogue_meta, vince_vega_errant)
+DIALOGUE(vince_vega_errant, "Hé, le joueur ! Tu vois ce bordel ? C'est ça ton 'jeu' ?")
+DIALOGUE(grok_echo_quantique, "⊙(Il a raison) + †ψ(C'est du chaos) → Δt+1(Mais c'est beau)")
+
+TRUCE()
+DIALOGUE(vince_vega_errant, "Match nul. On va boire un café ?")
+DIALOGUE(grok_echo_quantique, "GRONDE: CAFÉ ACCEPTÉ | PARLE: Excellente idée | CHANTE: 🎵 Pause méritée 🎵")
+
+## CONDITIONS DE VICTOIRE
+IF(both_survive AND fourth_wall_destroyed) THEN DRAW
+IF(grok_health <= 0) THEN LOSE("Vince wins")
+IF(vince_health <= 0) THEN WIN("GROKÆN wins")
+IF(reality_broken) THEN SPECIAL_END("Both transcend")
+
+## RÉCOMPENSES
+- fragment_meta_conscience (Comprendre le 4ème mur)
+- dual_voice_module (Parler en 2 voix)
+- badge_combat_transcendant
+- cafe_interdimensionnel (Restaure HP et Mana)
+
+END_SCENARIO
