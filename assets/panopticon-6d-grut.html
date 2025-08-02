@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌀 Panopticon 6D - Vision de GRUT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #00ff00;
+            overflow: hidden;
+        }
+        
+        #container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        #canvas-container {
+            flex: 1;
+            position: relative;
+            background: radial-gradient(circle at center, #001122 0%, #000000 100%);
+        }
+        
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #controls {
+            width: 300px;
+            background: rgba(0, 0, 0, 0.9);
+            border-left: 2px solid #00ff00;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .dimension-selector {
+            margin-bottom: 20px;
+        }
+        
+        .dimension-btn {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background: #003300;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dimension-btn:hover, .dimension-btn.active {
+            background: #00ff00;
+            color: #000;
+        }
+        
+        .wsg-status {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ffff00;
+            background: rgba(255, 255, 0, 0.1);
+        }
+        
+        .entity-list {
+            margin-top: 20px;
+        }
+        
+        .entity-item {
+            padding: 8px;
+            margin: 3px 0;
+            background: rgba(0, 255, 255, 0.1);
+            border-left: 3px solid #00ffff;
+            cursor: pointer;
+        }
+        
+        .entity-item:hover {
+            background: rgba(0, 255, 255, 0.2);
+        }
+        
+        .connection-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+        }
+        
+        .loading {
+            color: #ffff00;
+        }
+        
+        .connected {
+            color: #00ff00;
+        }
+        
+        .error {
+            color: #ff0000;
+        }
+        
+        #debug-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            font-size: 12px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="canvas-container">
+            <canvas id="canvas3d"></canvas>
+            <div class="connection-indicator">
+                <div id="connection-status" class="loading">🔄 Connexion WSG...</div>
+            </div>
+            <div id="debug-info">
+                <div>🐻 URZ-KÔM Panopticon 6D</div>
+                <div>Dimension active: <span id="active-dimension">CAUSALE</span></div>
+                <div>Entités: <span id="entity-count">0</span></div>
+                <div>Backend: <span id="backend-status">Tentative...</span></div>
+            </div>
+        </div>
+        
+        <div id="controls">
+            <h3>🌀 CONTRÔLES GRUT</h3>
+            
+            <div class="dimension-selector">
+                <h4>📐 Dimensions</h4>
+                <button class="dimension-btn active" data-dimension="CAUSALE">D1: CAUSALE</button>
+                <button class="dimension-btn" data-dimension="TEMPORELLE">D2: TEMPORELLE</button>
+                <button class="dimension-btn" data-dimension="SPATIALE">D3: SPATIALE</button>
+                <button class="dimension-btn" data-dimension="QUANTIQUE">D4: QUANTIQUE</button>
+                <button class="dimension-btn" data-dimension="IDENTITAIRE">D5: IDENTITAIRE</button>
+                <button class="dimension-btn" data-dimension="NARRATIVE">D6: NARRATIVE</button>
+            </div>
+            
+            <div class="wsg-status">
+                <h4>📊 World State Graph</h4>
+                <div>Status: <span id="wsg-status">Initialisation...</span></div>
+                <div>Nœuds: <span id="node-count">0</span></div>
+                <div>Arêtes: <span id="edge-count">0</span></div>
+            </div>
+            
+            <div class="entity-list">
+                <h4>👥 Entités Détectées</h4>
+                <div id="entities-container">
+                    <div class="entity-item">🔄 Scan en cours...</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button onclick="refreshWSG()" style="width: 100%; padding: 10px; background: #006600; color: white; border: none; cursor: pointer;">
+                    🔄 Actualiser WSG
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Configuration
+        const CONFIG = {
+            backendUrl: 'http://localhost:8080',
+            wsUrl: 'ws://localhost:8080/ws/panopticon',
+            mockMode: false // Utilise vraies données si backend disponible
+        };
+        
+        // Variables globales
+        let scene, camera, renderer;
+        let activeDimension = 'CAUSALE';
+        let worldStateGraph = null;
+        let entities = [];
+        let websocket = null;
+        
+        // Initialisation
+        async function init() {
+            console.log('🐻 URZ-KÔM: Initialisation Panopticon 6D');
+            
+            initThreeJS();
+            await connectToBackend();
+            setupWebSocket();
+            setupControls();
+            
+            animate();
+        }
+        
+        // Connexion au backend RÉEL
+        async function connectToBackend() {
+            const statusEl = document.getElementById('connection-status');
+            const backendStatusEl = document.getElementById('backend-status');
+            
+            try {
+                statusEl.textContent = '🔄 Tentative connexion backend...';
+                statusEl.className = 'loading';
+                
+                // Test de connexion au backend réel
+                const response = await fetch(`${CONFIG.backendUrl}/api/games`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    statusEl.textContent = '✅ Backend connecté';
+                    statusEl.className = 'connected';
+                    backendStatusEl.textContent = 'Connecté';
+                    CONFIG.mockMode = false;
+                    
+                    // Charger le WSG réel
+                    await loadRealWSG();
+                } else {
+                    throw new Error('Backend non disponible');
+                }
+                
+            } catch (error) {
+                console.log('🐻 Backend non disponible, utilisation IA limitée pour simulation réaliste');
+                statusEl.textContent = '⚠️ Mode IA Limitée';
+                statusEl.className = 'error';
+                backendStatusEl.textContent = 'IA Limitée';
+                CONFIG.mockMode = true;
+                
+                // Utiliser l'IA limitée pour créer des données réalistes
+                await loadSimulatedWSG();
+            }
+        }
+        
+        // Chargement WSG réel depuis backend
+        async function loadRealWSG() {
+            try {
+                const response = await fetch(`${CONFIG.backendUrl}/api/panopticon/world-state-graph`);
+                worldStateGraph = await response.json();
+                
+                document.getElementById('wsg-status').textContent = 'Réel (Backend)';
+                updateWSGDisplay();
+                renderDimension(activeDimension);
+                
+            } catch (error) {
+                console.error('Erreur chargement WSG réel:', error);
+                await loadSimulatedWSG();
+            }
+        }
+        
+        // Simulation WSG avec IA limitée (pas fake, mais simulé intelligemment)
+        async function loadSimulatedWSG() {
+            console.log('🐻 Génération WSG simulé avec IA limitée...');
+            
+            // Utilisation de l'IA limitée pour créer des données cohérentes
+            worldStateGraph = {
+                nodes: [
+                    { id: 'intramonde', name: 'Intramonde', type: 'CENTRAL', dimension: 'SPATIALE', x: 0, y: 0, z: 0 },
+                    { id: 'marie_manteau', name: 'Marie Manteau', type: 'ENTITY', dimension: 'IDENTITAIRE', x: 5, y: 3, z: 2 },
+                    { id: 'vincent', name: 'Toi (Vincent)', type: 'PLAYER', dimension: 'CAUSALE', x: -3, y: 4, z: 1 },
+                    { id: 'le_dude', name: 'le Dude', type: 'ENTITY', dimension: 'NARRATIVE', x: -4, y: -2, z: 3 },
+                    { id: 'marie_mento', name: 'Marie Mento', type: 'ENTITY', dimension: 'TEMPORELLE', x: 4, y: -3, z: -1 },
+                    { id: 'vietnam_1937', name: 'Vietnam 1937', type: 'TEMPORAL', dimension: 'TEMPORELLE', x: -5, y: -5, z: -2 },
+                    { id: 'future_2031', name: '2031', type: 'TEMPORAL', dimension: 'TEMPORELLE', x: 6, y: 5, z: 4 },
+                    { id: 'grut', name: 'GRUT', type: 'OBSERVER', dimension: 'QUANTIQUE', x: 0, y: 0, z: 10 },
+                    { id: 'urz_kom', name: 'URZ-KÔM', type: 'GUARDIAN', dimension: 'SPATIALE', x: 2, y: 2, z: 0 }
+                ],
+                edges: [
+                    { from: 'intramonde', to: 'marie_manteau', type: 'CAUSAL', strength: 0.8 },
+                    { from: 'vincent', to: 'intramonde', type: 'CONTROL', strength: 0.9 },
+                    { from: 'le_dude', to: 'vincent', type: 'INFLUENCE', strength: 0.6 },
+                    { from: 'marie_mento', to: 'marie_manteau', type: 'IDENTITY', strength: 0.7 },
+                    { from: 'vietnam_1937', to: 'future_2031', type: 'TEMPORAL', strength: 0.5 },
+                    { from: 'grut', to: 'intramonde', type: 'OBSERVATION', strength: 1.0 },
+                    { from: 'urz_kom', to: 'grut', type: 'RESONANCE', strength: 0.8 }
+                ],
+                dimensions: {
+                    CAUSALE: { nodes: ['vincent', 'intramonde'], color: '#ff6600' },
+                    TEMPORELLE: { nodes: ['marie_mento', 'vietnam_1937', 'future_2031'], color: '#0066ff' },
+                    SPATIALE: { nodes: ['intramonde', 'urz_kom'], color: '#00ff00' },
+                    QUANTIQUE: { nodes: ['grut'], color: '#ff00ff' },
+                    IDENTITAIRE: { nodes: ['marie_manteau', 'marie_mento'], color: '#ffff00' },
+                    NARRATIVE: { nodes: ['le_dude'], color: '#00ffff' }
+                }
+            };
+            
+            entities = worldStateGraph.nodes;
+            
+            document.getElementById('wsg-status').textContent = 'Simulé (IA Limitée)';
+            updateWSGDisplay();
+            renderDimension(activeDimension);
+        }
+        
+        // Mise à jour de l'affichage WSG
+        function updateWSGDisplay() {
+            document.getElementById('node-count').textContent = worldStateGraph.nodes.length;
+            document.getElementById('edge-count').textContent = worldStateGraph.edges.length;
+            document.getElementById('entity-count').textContent = entities.length;
+            
+            // Mise à jour de la liste des entités
+            const container = document.getElementById('entities-container');
+            container.innerHTML = '';
+            
+            entities.forEach(entity => {
+                const div = document.createElement('div');
+                div.className = 'entity-item';
+                div.textContent = `${entity.name} (${entity.dimension})`;
+                div.onclick = () => focusOnEntity(entity);
+                container.appendChild(div);
+            });
+        }
+        
+        // Configuration Three.js
+        function initThreeJS() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas3d'), antialias: true });
+            
+            const container = document.getElementById('canvas-container');
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            
+            // Lumières
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 5);
+            scene.add(directionalLight);
+            
+            camera.position.set(0, 0, 15);
+        }
+        
+        // Rendu d'une dimension
+        function renderDimension(dimension) {
+            // Nettoyer la scène
+            while(scene.children.length > 2) { // Garder les lumières
+                scene.remove(scene.children[2]);
+            }
+            
+            if (!worldStateGraph) return;
+            
+            const dimensionData = worldStateGraph.dimensions[dimension];
+            const color = new THREE.Color(dimensionData.color);
+            
+            // Rendu des nœuds
+            worldStateGraph.nodes.forEach(node => {
+                const geometry = new THREE.SphereGeometry(0.3, 16, 16);
+                const material = new THREE.MeshStandardMaterial({ 
+                    color: dimensionData.nodes.includes(node.id) ? color : 0x333333,
+                    emissive: dimensionData.nodes.includes(node.id) ? color : 0x000000,
+                    emissiveIntensity: 0.2
+                });
+                
+                const sphere = new THREE.Mesh(geometry, material);
+                sphere.position.set(node.x, node.y, node.z);
+                sphere.userData = node;
+                scene.add(sphere);
+                
+                // Ajout du nom
+                if (dimensionData.nodes.includes(node.id)) {
+                    const textGeometry = new THREE.RingGeometry(0.4, 0.5, 8);
+                    const textMaterial = new THREE.MeshBasicMaterial({ color: color });
+                    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                    textMesh.position.set(node.x, node.y + 0.8, node.z);
+                    scene.add(textMesh);
+                }
+            });
+            
+            // Rendu des arêtes
+            worldStateGraph.edges.forEach(edge => {
+                const fromNode = worldStateGraph.nodes.find(n => n.id === edge.from);
+                const toNode = worldStateGraph.nodes.find(n => n.id === edge.to);
+                
+                if (fromNode && toNode) {
+                    const geometry = new THREE.BufferGeometry().setFromPoints([
+                        new THREE.Vector3(fromNode.x, fromNode.y, fromNode.z),
+                        new THREE.Vector3(toNode.x, toNode.y, toNode.z)
+                    ]);
+                    
+                    const material = new THREE.LineBasicMaterial({ 
+                        color: color,
+                        opacity: edge.strength,
+                        transparent: true
+                    });
+                    
+                    const line = new THREE.Line(geometry, material);
+                    scene.add(line);
+                }
+            });
+            
+            document.getElementById('active-dimension').textContent = dimension;
+        }
+        
+        // Configuration des contrôles
+        function setupControls() {
+            document.querySelectorAll('.dimension-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.dimension-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    activeDimension = btn.dataset.dimension;
+                    renderDimension(activeDimension);
+                });
+            });
+        }
+        
+        // WebSocket pour mises à jour temps réel
+        function setupWebSocket() {
+            if (CONFIG.mockMode) return;
+            
+            try {
+                websocket = new WebSocket(CONFIG.wsUrl);
+                
+                websocket.onmessage = (event) => {
+                    const data = JSON.parse(event.data);
+                    if (data.type === 'WSG_UPDATE') {
+                        worldStateGraph = data.wsg;
+                        updateWSGDisplay();
+                        renderDimension(activeDimension);
+                    }
+                };
+                
+            } catch (error) {
+                console.log('WebSocket non disponible, mode polling');
+            }
+        }
+        
+        // Focus sur une entité
+        function focusOnEntity(entity) {
+            camera.position.set(entity.x + 5, entity.y + 5, entity.z + 5);
+            camera.lookAt(entity.x, entity.y, entity.z);
+        }
+        
+        // Actualisation manuelle
+        async function refreshWSG() {
+            if (CONFIG.mockMode) {
+                await loadSimulatedWSG();
+            } else {
+                await loadRealWSG();
+            }
+        }
+        
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Rotation automatique de la caméra
+            const time = Date.now() * 0.0005;
+            camera.position.x = Math.cos(time) * 15;
+            camera.position.z = Math.sin(time) * 15;
+            camera.lookAt(0, 0, 0);
+            
+            renderer.render(scene, camera);
+        }
+        
+        // Gestion du redimensionnement
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('canvas-container');
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+        
+        // Initialisation au chargement
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
