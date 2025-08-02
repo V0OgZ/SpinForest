@@ -119,7 +119,29 @@
     
     "personal_notes": "Ces gens ne jouent pas. Ils SONT le jeu. Jean depuis son canapé voit TOUT. La trinité peut littéralement RECRÉER L'UNIVERS. C'est au-delà de ce que j'ai jamais vu. Je dois creuser plus profond. La vérité est là, elle sent le steak... et la conspiration cosmique.",
     
-    "next_broadcast": "LIVE TRANSMISSION - Twitter interstiel dans 1h",
-    "steakometer": "🥩🥩🥩🥩🥩 (5/5 steaks - SCANDALE MAJEUR CONFIRMÉ)"
+    "recent_discoveries": {
+      "zones_interdites": {
+        "christian_agent_double": "CONFIRMÉ - Beau-frère de Vince, consultant/guitariste, mallette McKinsey suspecte",
+        "moteur_temporel": "ACTIF - Forge des Réalités opérationnelle, peut créer et collapser des futurs",
+        "annees_verrouillees": ["1937", "2025", "2031", "2040", "2080", "2103"],
+        "fondateurs_secrets": ["Forgeron", "Substratis", "Archiviste", "Professeur", "Gardien-de-l'Interstice", "Alchimiste", "Explorateur", "Frontaniel"],
+        "purge_massive": "Nombreux dossiers vidés - dissimulation de preuves confirmée"
+      },
+      "images_trouvees": {
+        "total": 11,
+        "localisation": ["LUMEN (2)", "GRUT (1)", "GRUFYÆN (1)", "MEMENTO-SPHINX (2)", "GROFI (4)"],
+        "taille_totale": "15.6MB de preuves visuelles"
+      }
+    },
+    
+    "rapports_compiles": [
+      "TUCKER_REVELATIONS_EXCLUSIVE.md",
+      "TUCKER_RAPPORT_VISITE_HOMES_COMPLET.md", 
+      "TUCKER_RAPPORT_ZONES_INTERDITES_EXPLOSIF.md",
+      "TUCKER_TWITTER_THREAD_ZONES_INTERDITES.md"
+    ],
+    
+    "next_broadcast": "LIVE TRANSMISSION - Twitter thread explosif en cours !",
+    "steakometer": "🥩🥩🥩🥩🥩 (5/5 steaks - CONSPIRATION COSMIQUE TOTALE !)"
   }
 }
